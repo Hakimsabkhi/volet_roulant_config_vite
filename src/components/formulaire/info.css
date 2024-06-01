@@ -1,0 +1,97 @@
+.closeButton {
+  background-color: rgba(94, 197, 238, 0.644);
+  color: white;
+  border: none; /* No border */
+  border-radius: 5px; /* Optional: Rounded corners */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  font-weight: bold; /* Optional: Make the 'X' bold */
+  font-size: 16px; /* Adjust the font size as needed */
+  width: 30px;
+  height: 30px;
+}
+.divBut {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Optional: Change appearance on hover for better user feedback */
+.closeButton:hover {
+  background-color: #ffffff; /* Red background for visibility */
+  color: rgb(0, 0, 0);
+}
+
+.formeBox {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1000;
+  width: 500px;
+  padding: 10px;
+  background-color: rgb(12, 17, 63); /* Semi-transparent background */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  gap: 10px;
+}
+
+.secondSection {
+  width: 90%;
+}
+
+.Optiondelivraison {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+label {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.label-class {
+  margin-top: 10px;
+}
+
+.delivery-option-select {
+  width: 50%; /* Full width */
+  padding: 10px; /* Some padding */
+  margin: 10px 0; /* Margin for spacing */
+  border: 1px solid #ccc; /* Grey border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Box-sizing */
+  margin-bottom: 10px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:invalid {
+  border-color: #dc3545;
+}
+
+.label-deliveryOption {
+  width: 50%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+
+@media (max-width: 1350px) {
+
+}

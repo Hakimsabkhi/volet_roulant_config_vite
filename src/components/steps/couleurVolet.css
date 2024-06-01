@@ -1,0 +1,63 @@
+.colors-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.colors-row > * {
+  flex: 1 0 30%; /* Each item has a basis of 30% of the container width */
+}
+
+.color-choice {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center; 
+  text-align: center;
+  font-size: 10px;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgba(94, 197, 238, 0.644);
+}
+
+
+.color-choice:hover {
+  background-color: rgb(115, 255, 1);
+  color: #000;
+}
+
+.color-label{
+  width: 30%;
+  height: 100%;
+  vertical-align: middle;
+  /* border: 2px solid #ddd; */
+  border-radius: 2px;
+}
+
+
+.ColorBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px; 
+}
+
+@media (max-width: 1050px) and (min-height: 800px) {
+.colors-row > * {
+  flex: 1 0 30%; /* Each item has a basis of 30% of the container width */}
+  .ColorBox {
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .i {
+    border-bottom: 2px solid white; /* Adjust the thickness and color as needed */
+    margin-bottom: 10px; /* Optional: Adjust the space below the border */
+  }
+}
+
+

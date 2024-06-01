@@ -1,0 +1,36 @@
+/* MultiStepInfoDisplay.css */
+
+.info-display {
+display: flex;
+flex-direction: column;
+text-align: left;
+gap: 10px;
+}
+
+
+.info-display table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-display td, .info-display th {
+  border: 1px solid #ffffff; /* White lines for separation */
+  padding: 8px;
+  text-align: left;
+  font-size: 12px; 
+}
+
+.info-display th {
+  background-color: #f2f2f2; /* Light background for headers */
+  color: black;
+}
+
+@media (max-width: 1050px) and (min-height: 660px) {
+  .info-display td, .info-display th {
+    padding: 3px;
+    font-size: 10px; 
+  }
+  .info-display {
+    flex-direction: row;
+}
+}
