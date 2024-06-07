@@ -30,6 +30,7 @@ function DimensionCostCalculator() {
 
   const handleIncrement = () => setMultiplier((prev) => prev + 1);
   const handleDecrement = () => setMultiplier((prev) => Math.max(1, prev - 1));
+  const handleCloseInformation = () => setShowInformation(false); // Function to handle closing Information component
 
   return (
     <div className="cost-calculator-container">
@@ -52,8 +53,8 @@ function DimensionCostCalculator() {
           </div>
         </div>
       </div>
-      {/* Removed "Obtenir un devis" button */}
-      {showInformation && <Information />} {/* Conditionally render the Information component */}
+    
+      {showInformation && <Information onClose={handleCloseInformation} />} 
     </div>
   );
 }
