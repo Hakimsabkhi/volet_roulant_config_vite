@@ -5,7 +5,7 @@ interface Dimensions {
   Hauteur: number;
 }
 
-interface SelectedColor {
+export interface SelectedColor {
   coulisse: string;
   tablier: string;
   lameFinale: string;
@@ -107,8 +107,8 @@ export const selectColorForCategory = (category: keyof SelectedColor) => (state:
 export const selectManoeuvre = (state: { volet: VoletState }) => state.volet.ManoeuvreType;
 export const selectManual = (state: { volet: VoletState }) => state.volet.ManualType;
 export const selectMotorise = (state: { volet: VoletState }) => state.volet.MotoriseType;
-export const selectTelecommand = (state: { volet: VoletState }) => state.volet.TelecommandeType;
-export const selectCommand = (state: { volet: VoletState }) => state.volet.CommandeType;
+export const selectTelecommande = (state: { volet: VoletState }) => state.volet.TelecommandeType;
+export const selectCommande = (state: { volet: VoletState }) => state.volet.CommandeType;
 export const selectInterrupteur = (state: { volet: VoletState }) => state.volet.InterrupteurType;
 export const selectSortieDeCable = (state: { volet: VoletState }) => state.volet.SortieDeCableType;
 

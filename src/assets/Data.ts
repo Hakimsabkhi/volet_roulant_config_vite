@@ -88,26 +88,26 @@ const ColorImages: ColorOptions = {
   coulisse: {
     'Blanc': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717002309/coulisse_couleur/couleur_coulisse_blanc.png',
     'Gris-clair': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991573/coulisse_couleur/couleur_coulisse_gris_claire.png',
-    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991574/coulisse_couleur/couleur_coulisse_gris_metallique.png',
+    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717691196/coulisse_couleur/couleur_coulisse_gris_metallique.png',
     'Gris-anthracite': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991564/coulisse_couleur/couleur_coulisse_gris_antracite.png',
-    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991564/coulisse_couleur/couleur_coulisse_marron.png',
-    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716911764/coulisse/couleur_coulisse_chene_dore.png'
+    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717684805/coulisse_couleur/couleur_coulisse_marron.png',
+    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717753164/coulisse_couleur/couleur_coulise_chene__dore.png'
   },
   tablier: {
     'Blanc': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717001686/tablier_couleur/couleur_tablier_blanc.png',
     'Gris-clair': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991588/tablier_couleur/couleur_tablier_gris_claire.png',
-    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991590/tablier_couleur/couleur_tablier_gris_metallique.png',
+    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717690624/tablier_couleur/couleur_tablier_gris_metallique.png',
     'Gris-anthracite': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991584/tablier_couleur/couleur_tablier_gris_anthracite.png',
-    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991586/tablier_couleur/couleur_tablier_marron.png',
-    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716903206/tablier_couleur/couleur_tablier_chene.png'
+    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717690536/tablier_couleur/couleur_tablier_marron.png',
+    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717750535/tablier_couleur/couleur_tablier_chene_dore.png'
   },
   lameFinale: {
     'Blanc': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717001851/lame_fianle_couleur/couleur_lame_finale_blanc.png',
     'Gris-clair': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991499/lame_fianle_couleur/couleur_lame_finale_gris_clair.png',
-    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991501/lame_fianle_couleur/couleur_lame_finale_gris_metallique.png',
+    'Gris-métallique': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717691257/lame_fianle_couleur/couleur_lame_finale_gris_metallique.png',
     'Gris-anthracite': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991496/lame_fianle_couleur/couleur_lame_finale_gris_antracite.png',
-    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716991499/lame_fianle_couleur/couleur_lame_finale_marron.png',
-    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1716903206/lame_finale_chene_dore.png'
+    'Marron': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717684608/lame_fianle_couleur/couleur_lame_finale_marron.png',
+    'Chêne-doré': 'https://res.cloudinary.com/dtbjrviyf/image/upload/v1717750526/lame_fianle_couleur/couleur_lame_finale_chene.png'
   }
 };
 

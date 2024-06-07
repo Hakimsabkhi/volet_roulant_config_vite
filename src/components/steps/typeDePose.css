@@ -67,7 +67,7 @@
 }
 
 
-.PoseOptions-container {
+.poseOptions-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -83,7 +83,7 @@ flex-direction:row;
     width: 50%;
   }
 
-  .PoseOptions-container {
+  .poseOptions-container {
     flex-direction: row;
   }
   .popup-info {

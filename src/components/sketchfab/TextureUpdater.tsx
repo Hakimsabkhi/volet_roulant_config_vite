@@ -1,53 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectColorForCategory } from '../../features/voletSlice';
+import { selectColorForCategory, SelectedColor } from '../../features/voletSlice';
 import { ColorImages } from '../../assets/Data';
-import { RootState } from '../../store'; // Adjust the path according to your project structure
+import { RootState } from '../../store';
+import TextureUpdateHandler from './TextureUpdateHandler'; // Adjust the import path as needed
 
 interface TextureUpdaterProps {
   apiClient: any;
-  category: keyof typeof ColorImages;
-  materialId: string;
-  currentTexture: string;
+  textureType: keyof SelectedColor;
+  textureId: string;
   setTexture: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TextureUpdater: React.FC<TextureUpdaterProps> = ({ apiClient, category, materialId, currentTexture, setTexture }) => {
-  const selectedColor = useSelector((state: RootState) => selectColorForCategory(category)(state));
-  const color = selectedColor as keyof typeof ColorImages[typeof category] || 'Blanc';
+const TextureUpdater: React.FC<TextureUpdaterProps> = ({ apiClient, textureType, textureId, setTexture }) => {
+  const color = useSelector((state: RootState) => selectColorForCategory(textureType)(state)) || 'Blanc';
+  const [textureURL, setTextureURL] = useState<string | null>(null);
 
   useEffect(() => {
-    const updateTextureAndMaterial = () => {
-      const textureURL = ColorImages[category][color];
-      if (!textureURL) return;
-
-      apiClient.updateTexture(textureURL, currentTexture, (err: any, newTextureUid: string) => {
-        if (err) return;
-
-        apiClient.getMaterialList((err: any, materials: any[]) => {
-          if (err) return;
-
-          const materialToUpdate = materials.find((material: any) => material.id === materialId);
-          if (!materialToUpdate) return;
-
-          if (materialToUpdate.channels.AlbedoPBR) {
-            materialToUpdate.channels.AlbedoPBR.texture.uid = newTextureUid;
-          }
-
-          apiClient.setMaterial(materialToUpdate, (err: any) => {
-            if (err) return;
-            setTexture(newTextureUid);
-          });
-        });
-      });
-    };
-
-    if (apiClient) {
-      updateTextureAndMaterial();
+    const url = ColorImages[textureType][color as keyof typeof ColorImages[typeof textureType]];
+    if (!url) {
+      console.error(`Invalid texture URL for ${textureType} with color ${color}`);
+      return;
     }
-  }, [apiClient, color, category, currentTexture, materialId, setTexture]);
+    setTextureURL(url);
+  }, [color, textureType]);
 
-  return null;
+  return textureURL && apiClient ? (
+    <TextureUpdateHandler
+      apiClient={apiClient}
+      textureURL={textureURL}
+      textureId={textureId}
+      setTexture={setTexture}
+    />
+  ) : null;
 };
 
 export default TextureUpdater;

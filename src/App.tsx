@@ -7,16 +7,13 @@ import './styles.css';
 const App: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0, z: 0 });
   const [target, setTarget] = useState({ x: 0, y: 0, z: 0 });
-  const handleSelectionsChange = (selections: any) => {
-    console.log('Selections changed:', selections);
-  };
+  const handleSelectionsChange = (selections: any) => { };
 
   return (
     <div className='MainStyle' style={{ display: 'flex' }}>
       <MultiStepMenu onSelectionsChange={handleSelectionsChange} />
       <Viewer setPosition={setPosition} setTarget={setTarget} />
-      {/* Uncomment the following line if you need to use CameraPosition */}
-      {/* <CameraPosition position={position} setPosition={setPosition} target={target} setTarget={setTarget} /> */}
+    {/*   <CameraPosition position={position} setPosition={setPosition} target={target} setTarget={setTarget} /> */}
     </div>
   );
 }
