@@ -5,6 +5,7 @@ import store from './store';
 import LoadingScreen from './LoadingScreen';
 import './styles.css';
 
+
 import App from './App';
 
 const Root: React.FC = () => {
@@ -21,9 +22,7 @@ const Root: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <div className='MainStyle'>
         {loading ? <LoadingScreen /> : <App />}
-      </div>
     </Provider>
   );
 };

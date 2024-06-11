@@ -1,5 +1,5 @@
 .closeButton {
-  background-color: rgba(94, 197, 238, 0.644);
+  background-color: rgba(5, 30, 80, 1);
   color: white;
   border: none; /* No border */
   border-radius: 5px; /* Optional: Rounded corners */
@@ -32,7 +32,7 @@
   z-index: 1000;
   width: 500px;
   padding: 10px;
-  background-color: rgb(12, 17, 63); /* Semi-transparent background */
+  background-color: rgba(78, 78, 78, 0.705);
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: center;

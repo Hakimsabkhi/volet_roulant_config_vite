@@ -26,7 +26,7 @@ gap: 10px;
 }
 
 .ma-btn {
-  background-color: rgba(94, 197, 238, 0.644);
+  background-color: rgba(5, 30, 80, 1);
   border: 2px solid rgba(255, 255, 255, 0.644);
   border-radius: 5px;
   width: 100%;
@@ -40,14 +40,14 @@ gap: 10px;
 .INTERRUPTEUR-btn.selected {
   color: rgb(0, 0, 0); /* This will change the text color to blue when selected */
   background-color: #ffffff;
-  border: 2px solid rgba(94, 197, 238, 0.644);
+  border: 2px solid rgba(5, 30, 80, 1);
 }
 
 .INTERRUPTEUR-btn {
   width: 130px;
 
-  background-color: rgba(94, 197, 238, 0.644);
-  border: 2px solid rgba(94, 197, 238, 0.644);
+  background-color: rgba(5, 30, 80, 1);
+  border: 2px solid rgba(5, 30, 80, 1);
   border-radius: 5px;
 }
 
@@ -74,7 +74,7 @@ gap: 10px;
   display: flex;
   justify-content: center;
   gap: 10px;
-  background-color: rgba(94, 197, 238, 0.644);
+  background-color: rgba(5, 30, 80, 1);
   border: none;
   border-radius: 5px;
 }
