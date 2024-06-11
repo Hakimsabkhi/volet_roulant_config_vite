@@ -5,13 +5,13 @@
   overflow: hidden; /* Ensures no overflow content is visible */
 }
 
-.overlay-buttons {
+.overlay-buttons {  
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
-  top: 5px; /* Adjust this value to place the buttons where you want them */
-  right: 10px; /* Adjust this value to place the buttons where you want them */
+  bottom: 20px;
+  right: 40%;
   z-index: 10;
 }
 
@@ -69,15 +69,16 @@
 
 
 .InteractionButton {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
 }
+
 
 
 @media (max-width: 1050px) and (min-height: 660px) {
   
 .InteractionButton {
-  width: 100px;
+  width: 40px;
   height: 40px;
 }
 .overlay-buttons {
@@ -91,5 +92,26 @@
 }
 
 }
+
+.toggle-button {
+  width: 50px;
+  height: 50px;
+  background: none; 
+  border: none;         
+  cursor: pointer;
+  display: flex;    /* Use flexbox for centering */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.952); /* Adds a shadow to the image */
+  border-radius: 4px; /* Optional: Adds rounded corners to the image */
+  transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+}
+
+.button-icon {
+  width: 40px;
+  display: block; 
+  
+}
+
 
 

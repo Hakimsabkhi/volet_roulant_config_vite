@@ -14,7 +14,7 @@ const Root: React.FC = () => {
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000); // Adjust the duration as needed
+    }, 3000); // Adjust the duration as needed
 
     return () => clearTimeout(timer);
   }, []);
