@@ -19,7 +19,7 @@ declare global {
 
 const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
   const [apiClient, setApiClient] = useState<any | null>(null);
-  const [userInteractionEnabled, setUserInteractionEnabled] = useState<boolean>(false);
+  const [userInteractionEnabled, setUserInteractionEnabled] = useState<boolean>(true);
   const [isBlurred, setIsBlurred] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
   const [coulisseTexture, setCoulisseTexture] = useState<string>("33b7f13018224606a347dc752a5bf9e5");
