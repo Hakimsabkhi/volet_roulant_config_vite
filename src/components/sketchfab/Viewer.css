@@ -9,10 +9,14 @@
   position: fixed;
   bottom: 5% ;
   left: 50%;
+  align-content: center;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: row;
   gap: 10px;
+  width: 500px;
+  height: 50px;
+  justify-content: center;
 }
 
 .viewer-container iframe {
@@ -82,13 +86,15 @@
   height: 40px;
 }
 .overlay-buttons {
-  top: 10px;
+  top: 3%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: center;
+  height: 50px;
+  width: 500px;
 }
 
 }

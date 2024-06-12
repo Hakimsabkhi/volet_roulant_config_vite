@@ -393,14 +393,14 @@ body {
   position: absolute;
   width: 21%;
   top: 12%; 
-  left: 50px;
+  left: 3%;
   z-index: 1000;
 }
 
 .Menu-button {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 5%;
+  left: 3%;
   width: 50px;
     height: 50px;
     background: none;
@@ -434,6 +434,13 @@ body {
   .multi-step-menu button.nav-btn {
     font-size: 12px;
   }
+
+  
+.steps-menu {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;}
 }
 
 @media (max-width: 1350px) {
@@ -452,6 +459,21 @@ body {
   .multi-step-menu button.nav-btn {
     font-size: 12px;
   }
+
+  .absolute-div {
+    position: absolute;
+    width: 90%;
+    top: unset;
+    left: 5%;
+    z-index: 1000;
+    bottom: 4%;
+}
+
+.Menu-button {
+  top: 3%;
+  left: 3%;
+}
+
 }
 
 @media (max-width: 1220px) {

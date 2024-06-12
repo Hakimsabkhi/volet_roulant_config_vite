@@ -27,7 +27,7 @@ const App: React.FC = () => {
         </div>
       )}
       <Viewer setPosition={setPosition} setTarget={setTarget} />
-      {/*<CameraPosition position={position} setPosition={setPosition} target={target} setTarget={setTarget} /> */}
+      {/* <CameraPosition position={position} setPosition={setPosition} target={target} setTarget={setTarget} /> */}
     </div>
   );
 };

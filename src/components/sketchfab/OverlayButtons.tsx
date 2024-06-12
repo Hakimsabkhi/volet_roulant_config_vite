@@ -20,7 +20,7 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({ handleViewChange, toggl
   const angleRef = useRef(0);
 
   const initialPosition: [number, number, number] = [2.6201731305279115, 1.7391765218021726, 2.246155724912089];
-  const target: [number, number, number] = [2.8558404087912743, -7.138095141931465, 2.246155724912087];
+  const target: [number, number, number] = [2.754840408791274, -7.138095141931463, 2.246155724912089];
 
   useEffect(() => {
     const dx = initialPosition[0] - target[0];

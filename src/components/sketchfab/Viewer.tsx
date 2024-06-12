@@ -32,6 +32,28 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
     const iframe = document.getElementById('sketchfab-viewer') as HTMLIFrameElement;
     let intervalId: NodeJS.Timeout | null = null;
 
+    const mediaQuery = window.matchMedia('(max-width: 1050px) and (min-height: 660px)');
+    
+    const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        apiClient && apiClient.setFov(70, (err: any) => {
+          if (err) {
+            console.error('Failed to set camera field of view:', err);
+          } else {
+            console.log('Camera field of view set to 70 degrees');
+          }
+        });
+      } else {
+        apiClient && apiClient.setFov(60, (err: any) => {
+          if (err) {
+            console.error('Failed to set camera field of view:', err);
+          } else {
+            console.log('Camera field of view set to 60 degrees');
+          }
+        });
+      }
+    };
+
     if (window.Sketchfab) {
       const client = new window.Sketchfab(iframe);
       client.init('231bc663e779447faddce738c2d66fde', {
@@ -44,7 +66,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
             // Set initial camera position and target with a delay of 2 seconds
             setTimeout(() => {
               const initialPosition: [number, number, number] = [2.6201731305279115, 1.7391765218021726, 2.246155724912089];
-              const initialTarget: [number, number, number] = [2.855840408791274, -7.138095141931463, 2.246155724912089];
+              const initialTarget: [number, number, number] = [2.754840408791274, -7.138095141931463, 2.246155724912089];
               api.setCameraLookAt(initialPosition, initialTarget, 6, (err: any) => {
                 if (err) {
                   console.error('Failed to set initial camera position:', err);
@@ -52,7 +74,28 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
                   console.log('Initial camera position set');
                 }
               });
+
+              // Set the field of view based on the media query
+              if (mediaQuery.matches) {
+                api.setFov(80, (err: any) => {
+                  if (err) {
+                    console.error('Failed to set camera field of view:', err);
+                  } else {
+                    console.log('Camera field of view set to 70 degrees');
+                  }
+                });
+              } else {
+                api.setFov(45, (err: any) => {
+                  if (err) {
+                    console.error('Failed to set camera field of view:', err);
+                  } else {
+                    console.log('Camera field of view set to 60 degrees');
+                  }
+                });
+              }
             }, 1000);
+
+            mediaQuery.addEventListener('change', handleMediaQueryChange);
 
             api.setUserInteraction(userInteractionEnabled, (err: any) => {
               if (err) {
@@ -133,6 +176,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
       if (apiClient) {
         apiClient.stop();
       }
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, [setPosition, setTarget]);
 
@@ -167,13 +211,12 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
 
   const handleViewChange = (position: [number, number, number], target: [number, number, number], duration: number = 5, callback?: (err: any) => void) => {
     if (apiClient) {
-      /* console.log(`Setting camera to position: ${JSON.stringify(position)}, target: ${JSON.stringify(target)}`); */
       apiClient.setCameraLookAt(position, target, duration, (err: any) => {
         if (callback) callback(err);
         if (err) {
           console.error('Failed to set camera look at:', err);
         } else {
-        /*   console.log(`Camera set to position ${position}`); */
+          console.log(`Camera set to position ${position}`);
         }
       });
     }
