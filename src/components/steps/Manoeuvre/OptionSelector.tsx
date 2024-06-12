@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import '../manoeuvre.css';
+import React, { useState, useRef } from "react";
+import "../manoeuvre.css";
 
 export interface Option {
   label: string;
@@ -14,15 +14,27 @@ interface OptionSelectorProps {
   type: string;
 }
 
-const OptionSelector: React.FC<OptionSelectorProps> = ({ options, selectedOption, handleChange, type }) => {
+const OptionSelector: React.FC<OptionSelectorProps> = ({
+  options,
+  selectedOption,
+  handleChange,
+  type,
+}) => {
   const [hoveredChoice, setHoveredChoice] = useState<Option | null>(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = (event: React.MouseEvent<HTMLLabelElement>, option: Option) => {
+  const handleMouseEnter = (
+    event: React.MouseEvent<HTMLLabelElement>,
+    option: Option
+  ) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
+    const translateYValue = window.innerHeight * 0.12; // 12% of viewport height
     if (containerRect) {
-      setPopupPosition({ top: containerRect.top + window.scrollY, left: containerRect.right });
+      setPopupPosition({
+        top: containerRect.top + window.scrollY - translateYValue,
+        left: containerRect.right,
+      });
     }
     setHoveredChoice(option);
   };
@@ -34,7 +46,9 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ options, selectedOption
           <label
             key={index}
             onClick={() => handleChange(option)}
-            className={`ma-btn ${option.label === selectedOption ? 'selected' : ''}`}
+            className={`ma-btn ${
+              option.label === selectedOption ? "selected" : ""
+            }`}
             onMouseEnter={(e) => handleMouseEnter(e, option)}
             onMouseLeave={() => setHoveredChoice(null)}
           >
@@ -55,9 +69,21 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ options, selectedOption
         ))}
       </div>
       {hoveredChoice && (
-        <div className="popup-info" style={{ top: `${popupPosition.top}px`, left: `${popupPosition.left}px` }}>
+        <div
+          className="popup-info"
+          style={{
+            top: `${popupPosition.top}px`,
+            left: `${popupPosition.left}px`,
+          }}
+        >
           <h2 className="choice-label">{hoveredChoice.label}</h2>
-          {hoveredChoice.image && <img className="popup-image" src={hoveredChoice.image} alt={hoveredChoice.label} />}
+          {hoveredChoice.image && (
+            <img
+              className="popup-image"
+              src={hoveredChoice.image}
+              alt={hoveredChoice.label}
+            />
+          )}
           <p>{hoveredChoice.description}</p>
         </div>
       )}

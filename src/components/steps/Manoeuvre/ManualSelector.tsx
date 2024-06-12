@@ -17,5 +17,4 @@ const ManualSelector: React.FC<ManualSelectorProps> = ({ selectedOption, handleC
     />
   );
 }
-
 export default ManualSelector;

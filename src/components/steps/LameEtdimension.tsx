@@ -27,7 +27,11 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLLabelElement>, choice: any) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    setPopupPosition({ top: rect.top + window.scrollY, left: rect.left + rect.width });
+    const translateYValue = window.innerHeight * 0.12; // 12% of viewport height
+    setPopupPosition({
+      top: rect.top + window.scrollY - translateYValue,
+      left: rect.left + rect.width
+    });
     setHoveredChoice(choice);
   };
 

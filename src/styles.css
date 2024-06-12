@@ -392,8 +392,8 @@ body {
 .absolute-div {
   position: absolute;
   width: 21%;
-  top: 12%; /* Adjust as needed */
-  left: 50px; /* Adjust as needed */
+  top: 12%; 
+  left: 50px;
   z-index: 1000;
 }
 

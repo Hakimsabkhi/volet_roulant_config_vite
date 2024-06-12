@@ -55,8 +55,6 @@
   align-items: center;
   gap: 10px;
   text-align: center;
-  margin-left: 40px;
-  top: 0; /* Aligns popup to the top of the container */
   width: 200px; /* adjust width as necessary */
   padding: 10px;
   background-color: rgba(3, 136, 123, 1);

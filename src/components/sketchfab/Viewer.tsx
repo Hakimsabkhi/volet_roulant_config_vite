@@ -167,13 +167,13 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
 
   const handleViewChange = (position: [number, number, number], target: [number, number, number], duration: number = 5, callback?: (err: any) => void) => {
     if (apiClient) {
-      console.log(`Setting camera to position: ${JSON.stringify(position)}, target: ${JSON.stringify(target)}`);
+      /* console.log(`Setting camera to position: ${JSON.stringify(position)}, target: ${JSON.stringify(target)}`); */
       apiClient.setCameraLookAt(position, target, duration, (err: any) => {
         if (callback) callback(err);
         if (err) {
           console.error('Failed to set camera look at:', err);
         } else {
-          console.log(`Camera set to position ${position}`);
+        /*   console.log(`Camera set to position ${position}`); */
         }
       });
     }
