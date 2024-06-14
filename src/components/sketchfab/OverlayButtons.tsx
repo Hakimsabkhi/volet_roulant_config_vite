@@ -4,8 +4,8 @@ import outsideViewIcon from '../../assets/front_view.png';
 import insideViewIcon from '../../assets/back_view.png';
 import OsideViewIcon from '../../assets/oside_view.png';
 import IsideViewIcon from '../../assets/iside_view.png';
-import disableInteractionIcon from '../../assets/camera.png';
-import enableInteractionIcon from '../../assets/camera.png';
+import enableRotation from '../../assets/camera.png';
+import disableRotation from '../../assets/pause.png';
 
 interface OverlayButtonsProps {
   handleViewChange: (position: [number, number, number], target: [number, number, number], duration?: number, callback?: (err: any) => void) => void;
@@ -80,12 +80,12 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({ handleViewChange, toggl
 
     const x = target[0] + radius * Math.cos(angleRef.current);
     const y = target[1] + radius * Math.sin(angleRef.current);
-    const z = target[2]; // Keep z position constant
+    const z = target[2];
 
     const position: [number, number, number] = [x, y, z];
 
     handleViewChange(position, target, 0.5);
-    angleRef.current += Math.PI / 180; // Rotate by 1 degree (Math.PI / 180 radians) each time
+    angleRef.current += Math.PI / 180;
   };
 
   const toggleRotation = () => {
@@ -120,7 +120,7 @@ const OverlayButtons: React.FC<OverlayButtonsProps> = ({ handleViewChange, toggl
         <img src={IsideViewIcon} alt="Side View" className="button-icon" />
       </button>
       <button onClick={toggleRotation} className="toggle-button">
-      <img src={disableInteractionIcon} alt="Toggle Interaction" className="button-icon" />
+        <img src={rotating ? disableRotation : enableRotation} alt="Toggle Rotation" className="button-icon" />
       </button>
     </div>
   );

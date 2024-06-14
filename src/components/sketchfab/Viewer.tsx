@@ -215,8 +215,6 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
         if (callback) callback(err);
         if (err) {
           console.error('Failed to set camera look at:', err);
-        } else {
-          console.log(`Camera set to position ${position}`);
         }
       });
     }
