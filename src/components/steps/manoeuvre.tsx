@@ -46,7 +46,9 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
       {ManoeuvreType === 'Manuel' && (
         <div className="ManoeuvreSection">
           <h2 className="text">{manoeuvreConfig[0]}</h2>
-          <ManualSelector selectedOption={ManualType} handleChange={handleChange(setManualType)} />
+          <div className="OptionSection">
+          <ManualSelector selectedOption={ManualType} handleChange={handleChange(setManualType)}  />
+          </div>
         </div>
       )}
       {ManoeuvreType === 'Motorisé' && (
@@ -54,13 +56,16 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
           <div className="ManoeuvreSectionG">
             <div className="ManoeuvreSection">
               <h2 className="text">{manoeuvreConfig[1]}</h2>
+              <div className="OptionSection">
               <MotoriseSelector selectedOption={MotoriseType} handleChange={handleChange(setMotoriseType)} />
+              </div>
             </div>
             {MotoriseType === 'Radio' && (
               <>
                 <div className="ManoeuvreSection">
                   <h2 className="text">{manoeuvreConfig[2]}</h2>
-                  <TelecommandeSelector selectedOption={TelecommandeType} handleChange={handleChange(setTelecommandeType)} />
+                  <div className="OptionSection"><TelecommandeSelector selectedOption={TelecommandeType} handleChange={handleChange(setTelecommandeType)} /></div>
+                  
                 </div>
               </>
             )}
@@ -68,11 +73,13 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
               <>
                 <div className="ManoeuvreSection">
                   <h2 className="text">{manoeuvreConfig[3]}</h2>
-                  <InterrupteurSelector selectedOption={InterrupteurType} handleChange={handleChange(setInterrupteurType)} />
+                  <div className="OptionSection"><InterrupteurSelector selectedOption={InterrupteurType} handleChange={handleChange(setInterrupteurType)} /></div>
+                  
                 </div>
                 <div className="ManoeuvreSection">
                   <h2 className="text">{manoeuvreConfig[4]}</h2>
-                  <SortieDeCableSelector selectedOption={SortieDeCableType} handleChange={handleChange(setSortieDeCableType)} />
+                  <div className="OptionSection"><SortieDeCableSelector selectedOption={SortieDeCableType} handleChange={handleChange(setSortieDeCableType)} /></div>
+                  
                 </div>
               </>
             )}

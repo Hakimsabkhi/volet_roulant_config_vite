@@ -1,5 +1,6 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import './info.css';
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import "./info.css";
+import exitIcon from '../../assets/exit.png';
 
 interface InformationProps {
   onClose: () => void;
@@ -17,20 +18,22 @@ interface FormData {
 
 const Information: React.FC<InformationProps> = ({ onClose }) => {
   const [formData, setFormData] = useState<FormData>({
-    deliveryOption: '',
-    fullNameOrCompany: '',
-    email: '',
-    phoneNumber: '',
-    postalCode: '',
-    city: '',
-    deliveryAddress: ''
+    deliveryOption: "",
+    fullNameOrCompany: "",
+    email: "",
+    phoneNumber: "",
+    postalCode: "",
+    city: "",
+    deliveryAddress: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -46,8 +49,8 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
   return (
     <form className="formeBox" onSubmit={handleSubmit}>
       <div className="divBut">
-        <button type="button" className="closeButton" onClick={handleClose}>
-          X
+        <button type="button" className="close-button" onClick={handleClose}>
+        <img src={exitIcon} alt="Outside View" className="button-close" />
         </button>
       </div>
       <div className="section secondSection">
@@ -61,27 +64,29 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
           onChange={handleChange}
         />
       </div>
-      <div className="secondSection">
-        <label htmlFor="email">Email</label>
-        <input
-          className="label-class"
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="secondSection">
-        <label htmlFor="phoneNumber">Numéro de téléphone</label>
-        <input
-          className="label-class"
-          type="tel"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-        />
+      <div className="thirdSection">
+        <div className="secondSection">
+          <label htmlFor="email">Email</label>
+          <input
+            className="label-class"
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="secondSection">
+          <label htmlFor="phoneNumber">Numéro de téléphone</label>
+          <input
+            className="label-class"
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+          />
+        </div>
       </div>
       <div className="Optiondelivraison secondSection">
         <label htmlFor="deliveryOption" className="label-deliveryOption">
@@ -98,7 +103,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
           <option value="homeDelivery">Livraison à domicile</option>
         </select>
       </div>
-      {formData.deliveryOption === 'homeDelivery' && (
+      {formData.deliveryOption === "homeDelivery" && (
         <>
           <div className="secondSection">
             <label htmlFor="deliveryAddress">Adresse de livraison</label>
@@ -111,27 +116,29 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
               onChange={handleChange}
             />
           </div>
-          <div className="secondSection">
-            <label htmlFor="city">Ville</label>
-            <input
-              className="label-class"
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="secondSection">
-            <label htmlFor="postalCode">Code Postal</label>
-            <input
-              className="label-class"
-              type="text"
-              id="postalCode"
-              name="postalCode"
-              value={formData.postalCode}
-              onChange={handleChange}
-            />
+          <div className="thirdSection">
+            <div className="secondSection">
+              <label htmlFor="city">Ville</label>
+              <input
+                className="label-class"
+                type="text"
+                id="city"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="secondSection">
+              <label htmlFor="postalCode">Code Postal</label>
+              <input
+                className="label-class"
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleChange}
+              />
+            </div>
           </div>
         </>
       )}

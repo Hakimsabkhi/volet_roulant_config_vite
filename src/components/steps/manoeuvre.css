@@ -17,6 +17,8 @@ display: flex;
 flex-direction: column;
 gap: 10px;
 }
+
+
 .ma-container-INTERRUPTEUR {
   display: flex;
   justify-content: center;
@@ -114,6 +116,14 @@ gap: 10px;
   .choice-description {
     display: none;
   }
+  .ManoeuvreSection {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  .OptionSection{
+    width: 50%;
+  }
 }
 
 @media (max-width: 1349px) {
@@ -124,4 +134,10 @@ gap: 10px;
   .choice-description {
     display: none;
   }
+
+    
+    .ManoeuvreSection {
+      display: flex;
+      flex-direction: row;
+    }
 }

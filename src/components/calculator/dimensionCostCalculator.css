@@ -88,6 +88,7 @@
 @media (max-width: 1050px) and (min-height: 800px) {
   .cost-calculator-container {
     flex-direction: row;
+    padding: 5px;
   }
 
   .total-cost {

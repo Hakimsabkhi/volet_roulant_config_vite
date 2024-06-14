@@ -80,9 +80,7 @@ const MultiStepInfoDisplay: React.FC = () => {
           <tr>
             <th>Couleurs</th>
             <td>
-              Coulisse: {selectedCoulisseColor},<br />
-              Tablier: {selectedTablierColor},<br />
-              Lame Finale: {selectedLameFinaleColor}
+              Coulisse: {selectedCoulisseColor} / Tablier: {selectedTablierColor} / Lame Finale: {selectedLameFinaleColor}          
             </td>
             <td className="price">{prices.selectedColors}€</td>
           </tr>

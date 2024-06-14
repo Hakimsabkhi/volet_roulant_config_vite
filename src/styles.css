@@ -437,10 +437,23 @@ body {
 
   
 .steps-menu {
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  width: 80%;}
+position: fixed;
+        top: 12%;
+        left: 50%;
+        width: 50%;
+        padding: 5px;
+        transform: translate(-50%, -50%);
+}
+
+  .multi-step-menu {
+    height: 100%;
+    padding: 5px;
+  }
+
+  .NavBtnContainer {
+    padding-bottom: 2%;
+    padding-right: 2%;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -462,11 +475,12 @@ body {
 
   .absolute-div {
     position: absolute;
-    width: 90%;
-    top: unset;
-    left: 5%;
-    z-index: 1000;
-    bottom: 4%;
+        width: 90%;
+        top: unset;
+        left: 5%;
+        z-index: 1000;
+        bottom: 4%;
+        height: 34%;
 }
 
 .Menu-button {
@@ -527,8 +541,10 @@ body {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    height: 55%;
+    height: 100%;
+    justify-content: flex-end;
   }
+
   .canvasStyle {
     height: 65%;
     width: 100%;
