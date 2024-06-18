@@ -116,4 +116,10 @@ input[type='tel'] {
 .label-class{
   margin-top: 5px;
 }
+
+.PrixUnitaire{
+  display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
 }

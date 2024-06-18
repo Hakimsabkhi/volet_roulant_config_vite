@@ -36,7 +36,7 @@ function DimensionCostCalculator() {
     <div className="cost-calculator-container">
       <div className="total-cost"><h3 className="cost-calculator-cost">Prix Total TTC: {costTotalTTC} €</h3></div>    
       <div className="presouscost">
-        <div>
+        <div className='PrixUnitaire'>
           <h2 className="cost-calculator-detail">Prix unitaire HT : {costHT} €</h2>
           <h2 className="cost-calculator-detail">Prix unitaire TTC : {costTTC} €</h2>
         </div>

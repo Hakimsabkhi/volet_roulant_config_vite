@@ -42,12 +42,15 @@
 }
 
 .multiplier-controls button {
+  width: 30px;
   background-color: #ffffff;
   border: none;
   border-radius: 5px;
   color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 25px;
+  padding: 3px;
 }
 
 .multiplier-controls button:hover {
@@ -56,9 +59,9 @@
 }
 
 .multiplier-controls span {
-  width: 20px;
+  width: 29px;
   text-align: center;
-  font-size: 18px;
+  font-size: 30px;
   color: #fff; /* White color for better visibility against the background */
 }
 
@@ -96,7 +99,7 @@
   }
 
   .presouscost {
-    width: 50%;
+    width: 55%;
   }
 }
 
