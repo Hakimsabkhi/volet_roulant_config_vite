@@ -1,5 +1,3 @@
-
-
 import { 
   Filaire, 
   Radio, 
@@ -19,56 +17,56 @@ import {
 } from './imageModule';
 
 const motoriseOptions = [
-  { label: 'Filaire', description: 'Description for Motorisé 1', image: Filaire },
-  { label: 'Radio', description: 'Description for Motorisé 2', image: Radio }
+  { label: 'Filaire', description: 'Description for Motorisé 1', image: Filaire, price: 100 },
+  { label: 'Radio', description: 'Description for Motorisé 2', image: Radio, price: 150 }
 ];
 
 const interrupteurOptions = [
-  { label: 'Sans', description: "Pas d'interrupteur", image: ('../../assets/none.png') },
-  { label: 'Encastree', description: 'Interrupteur encastré', image: AppliqueEncastre },
-  { label: 'En applique', description: 'Interrupteur en applique', image: AppliqueEnApplique }
+  { label: 'Sans', description: "Pas d'interrupteur", image: ('../../assets/none.png'), price: 0 },
+  { label: 'Encastree', description: 'Interrupteur encastré', image: AppliqueEncastre, price: 20 },
+  { label: 'En applique', description: 'Interrupteur en applique', image: AppliqueEnApplique, price: 25 }
 ];
 
 const telecommandeOptions = [
-  { label: 'Sans', description: 'Sans télécommande', image: ('../../assets/Encastree.png') },
-  { label: 'Avec', description: 'Avec télécommande', image: ('../../assets/EnApplique.png') }
+  { label: 'Sans', description: 'Sans télécommande', image: ('../../assets/Encastree.png'), price: 0 },
+  { label: 'Avec', description: 'Avec télécommande', image: ('../../assets/EnApplique.png'), price: 30 }
 ];
 
 const commandeOptions = [
-  { label: 'Emetteur mural', description: 'Interrupteur encastré', image: ('../../assets/Encastree.png') },
-  { label: 'Télécommande', description: 'Interrupteur en applique', image: ('../../assets/EnApplique.png') }
+  { label: 'Emetteur mural', description: 'Interrupteur encastré', image: ('../../assets/Encastree.png'), price: 15 },
+  { label: 'Télécommande', description: 'Interrupteur en applique', image: ('../../assets/EnApplique.png'), price: 25 }
 ];
 
 const manualOptions = [
-  { label: 'Manivelle', description: 'Description for Manuel 1', image: Manivelle },
-  { label: 'Sangle', description: 'Description for Manuel 2', image: Sangle }
+  { label: 'Manivelle', description: 'Description for Manuel 1', image: Manivelle, price: 50 },
+  { label: 'Sangle', description: 'Description for Manuel 2', image: Sangle, price: 45 }
 ];
 
 const sortieDeCableOptions = [
-  { label: 'Gauche', description: 'Sortie de câble à gauche', image: Droite },
-  { label: 'Droite', description: 'Sortie de câble à droite', image: Gauche }
+  { label: 'Gauche', description: 'Sortie de câble à gauche', image: Droite, price: 10 },
+  { label: 'Droite', description: 'Sortie de câble à droite', image: Gauche, price: 10 }
 ];
 
 const controlOptions = [
-  { label: 'Manuel', description: 'Fonctionne par une commande manuelle.', image: Manuel },
-  { label: 'Motorisé', description: 'Actionné électriquement', image: MoteurBeker }
+  { label: 'Manuel', description: 'Fonctionne par une commande manuelle.', image: Manuel, price: 0 },
+  { label: 'Motorisé', description: 'Actionné électriquement', image: MoteurBeker, price: 200 }
 ];
 
 const poseOptions = [
-  { label: 'sous lanteau', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: SousLanteau },
-  { label: 'sous lanteau inverse', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: SousLanteauInverse },
-  { label: 'En applique', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: EnApplique }
+  { label: 'sous lanteau', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: SousLanteau, price: 75 },
+  { label: 'sous lanteau inverse', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: SousLanteauInverse, price: 80 },
+  { label: 'En applique', description: 'Coffre pan coupé ou quart de rond aluminium différentes couleurs', image: EnApplique, price: 85 }
 ];
 
 const lameChoices = [
-  { label: 'Lame 41', description: 'Lames en Aluminium plié et injectées de mousse isolante.', image: Lame41Image },
-  { label: 'Lame 55', description: 'Lame volet roulant aluminium isolée 55x14.', image: Lame55Image }
+  { label: 'Lame 41', description: 'Lames en Aluminium plié et injectées de mousse isolante.', image: Lame41Image, price: 100 },
+  { label: 'Lame 55', description: 'Lame volet roulant aluminium isolée 55x14.', image: Lame55Image, price: 120 }
 ];
 
 const manoeuvreConfig = [
   "Outil De Commande",
   "Type de Motorisation (marque : Becker)",
-  "Type de Motorisation (marque : Becker)",
+  "Telecommand",
   "Interrupteur",
   "Sortie de câble"
 ];

@@ -5,7 +5,7 @@ import LameEtDimension from "./steps/LameEtdimension";
 import CouleurVolet from "./steps/couleurVolet";
 import TypeDePose from "./steps/typeDePose";
 import MultiStepInfoDisplay from "./MultiStepInfoDisplay";
-import DimensionCostCalculator from "./calculator/dimensionCostCalculator";
+import DimensionCostCalculator from "./calculator/TotalCostCalculator";
 import Information from "./formulaire/info";
 import WarningPopup from "./WarningPopup";
 
