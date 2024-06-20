@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import './TotalCostCalculator.css';
 import Information from '../formulaire/info';
-import DimensionCostCalculator from './DimensionCostCalculator';
+import DimensionCostCalculator from './dimensionCostCalculator';
 import {
   motoriseOptions,
   interrupteurOptions,
