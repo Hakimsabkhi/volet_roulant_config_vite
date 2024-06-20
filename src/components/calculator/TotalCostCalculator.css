@@ -1,4 +1,4 @@
-/* dimensionCostCalculator.css */
+/* TotalCostCalculateur.css */
 
 .cost-calculator-container {
   display: flex;
@@ -49,8 +49,7 @@
   color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 25px;
-  padding: 3px;
+  font-size: 23px;
 }
 
 .multiplier-controls button:hover {
@@ -61,18 +60,17 @@
 .multiplier-controls span {
   width: 29px;
   text-align: center;
-  font-size: 30px;
+  font-size: 24px;
   color: #fff; /* White color for better visibility against the background */
 }
 
 .nav-btn {
-  padding: 10px 20px;
-
+  padding: 5px;
+  font-size: 14px;
   border: none;
   border-radius: 5px;
   background-color: rgba(5, 30, 80, 1);
   color: white;
-  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

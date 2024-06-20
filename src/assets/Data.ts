@@ -39,7 +39,7 @@ const commandeOptions = [
 
 const manualOptions = [
   { label: 'Manivelle', description: 'Description for Manuel 1', image: Manivelle, price: 50 },
-  { label: 'Sangle', description: 'Description for Manuel 2', image: Sangle, price: 45 }
+  { label: 'Sangle', description: 'Description for Manuel 2', image: Sangle, price: 55 }
 ];
 
 const sortieDeCableOptions = [
@@ -48,7 +48,7 @@ const sortieDeCableOptions = [
 ];
 
 const controlOptions = [
-  { label: 'Manuel', description: 'Fonctionne par une commande manuelle.', image: Manuel, price: 0 },
+  { label: 'Manuel', description: 'Fonctionne par une commande manuelle.', image: Manuel, price: 150 },
   { label: 'Motorisé', description: 'Actionné électriquement', image: MoteurBeker, price: 200 }
 ];
 

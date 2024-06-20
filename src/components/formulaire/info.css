@@ -41,6 +41,8 @@ width: 30px;
 .close-button {
   background: none;
   border: none;
+  display: flex;
+  justify-content: flex-end;
 }
 .secondSection {
   width: 90%;

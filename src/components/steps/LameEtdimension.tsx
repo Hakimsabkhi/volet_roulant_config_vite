@@ -4,7 +4,7 @@ import { setLameSelection, setDimensions } from '../../features/voletSlice';
 import './LameEtdimension.css';
 import './typeDePose.css';
 import { lameChoices } from '../../assets/Data';
-import { RootState } from '../../store'; 
+import { RootState } from '../../store';
 
 interface LameEtDimensionProps {
   setSelections: React.Dispatch<React.SetStateAction<any>>;
@@ -38,23 +38,23 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
   const handleLameChoice = (lameChoice: any) => {
     dispatch(setLameSelection(lameChoice.label));
 
-    // After updating the selection, check if the current dimension values need adjustment
     const newMaxWidth = lameChoice.label === 'Lame 41' ? 3000 : 3500;
     const newMaxHeight = lameChoice.label === 'Lame 41' ? 2700 : 3000;
 
-    // Check if the current width exceeds the new max width
     if (dimensions.Largeur > newMaxWidth) {
       dispatch(setDimensions({ ...dimensions, Largeur: newMaxWidth }));
     }
 
-    // Check if the current height exceeds the new max height
     if (dimensions.Hauteur > newMaxHeight) {
       dispatch(setDimensions({ ...dimensions, Hauteur: newMaxHeight }));
     }
   };
 
   const handleDimensionChange = (dimensionName: string, value: string) => {
-    dispatch(setDimensions({ ...dimensions, [dimensionName]: Number(value) }));
+    // Remove leading zeros
+    const newValue = value.replace(/^0+/, '');
+    if (!/^\d*$/.test(newValue)) return; // Prevent non-numeric input
+    dispatch(setDimensions({ ...dimensions, [dimensionName]: Number(newValue) }));
   };
 
   const handleBlur = (dimensionName: string, value: string) => {
@@ -105,14 +105,14 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
 
       <div className="dimensionSection">
         <div className="dimension-input-container">
-          <h2>
+          <h2 className="dimensionStyle">
             Largeur en mm (min: 600 mm - max: {lameSelection === 'Lame 41' ? 3000 : 3500}):
           </h2>
           <input
             type="number"
             id="Largeur"
             className="dimension-input"
-            value={dimensions.Largeur}
+            value={dimensions.Largeur === 0 ? '' : dimensions.Largeur}
             onChange={(e) => handleDimensionChange('Largeur', e.target.value)}
             onBlur={(e) => handleBlur('Largeur', e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).select()}
@@ -121,14 +121,14 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
           />
         </div>
         <div className="dimension-input-container">
-          <h2>
+          <h2 className="dimensionStyle">
             Hauteur en mm (min: 600 mm - max: {lameSelection === 'Lame 41' ? 2700 : 3000}):
           </h2>
           <input
             type="number"
             id="Hauteur"
             className="dimension-input"
-            value={dimensions.Hauteur}
+            value={dimensions.Hauteur === 0 ? '' : dimensions.Hauteur}
             onChange={(e) => handleDimensionChange('Hauteur', e.target.value)}
             onBlur={(e) => handleBlur('Hauteur', e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).select()}

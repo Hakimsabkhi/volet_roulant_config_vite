@@ -15,9 +15,9 @@ gap: 10px;
 
 .info-display td, .info-display th {
   border: 1px solid #ffffff; /* White lines for separation */
-  padding: 8px;
+  padding: 3px;
   text-align: left;
-  font-size: 12px; 
+  font-size: 10px; 
 }
 
 .info-display th {

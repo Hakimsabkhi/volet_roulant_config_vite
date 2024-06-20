@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import './MultiStepInfoDisplay.css';
 import DimensionCostCalculator from './calculator/DimensionCostCalculator';
-import { motoriseOptions, interrupteurOptions, telecommandeOptions, commandeOptions, manualOptions, sortieDeCableOptions, controlOptions, poseOptions, lameChoices } from '../assets/Data';
+import {
+  motoriseOptions,
+  interrupteurOptions,
+  telecommandeOptions,
+  commandeOptions,
+  manualOptions,
+  sortieDeCableOptions,
+  controlOptions,
+  poseOptions,
+  lameChoices
+} from '../assets/Data';
+import PDFExport from './formulaire/PDFExport'; // Import the new component
 
 // Define types for your state
 interface Dimensions {
@@ -57,13 +68,15 @@ const MultiStepInfoDisplay: React.FC = () => {
 
   const lameSelectionPrice = getPrice(lameChoices, lameSelection);
   const installationTypePrice = getPrice(poseOptions, installationType);
+  const manoeuvreTypePrice = getPrice(controlOptions, ManoeuvreType);
   const motoriseTypePrice = getPrice(motoriseOptions, MotoriseType);
   const telecommandePrice = getPrice(telecommandeOptions, TelecommandeType);
   const interrupteurPrice = getPrice(interrupteurOptions, InterrupteurType);
   const sortieDeCablePrice = getPrice(sortieDeCableOptions, SortieDeCableType);
+  const manualTypePrice = getPrice(manualOptions, ManualType);
 
   // Simplistic total price calculation for demonstration
-  const totalPrice = lameSelectionPrice + installationTypePrice + motoriseTypePrice + telecommandePrice + interrupteurPrice + sortieDeCablePrice + dimensionCost;
+  const totalPrice = lameSelectionPrice + installationTypePrice + manoeuvreTypePrice + motoriseTypePrice + telecommandePrice + interrupteurPrice + sortieDeCablePrice + manualTypePrice + dimensionCost;
 
   return (
     <div className="info-display">
@@ -79,7 +92,7 @@ const MultiStepInfoDisplay: React.FC = () => {
             <td>
               Largeur: {dimensions.Largeur} mm, Hauteur: {dimensions.Hauteur} mm
             </td>
-            <td className="price"><DimensionCostCalculator dimensions={dimensions} onCostCalculated={setDimensionCost} /></td>
+            <td className="price">{dimensionCost.toFixed(2)}€</td>
           </tr>
           <tr>
             <th>Type d'Installation</th>
@@ -96,13 +109,13 @@ const MultiStepInfoDisplay: React.FC = () => {
           <tr>
             <th>Type de Manoeuvre</th>
             <td>{ManoeuvreType}</td>
-            <td className="price">{ManoeuvreType === 'Motorisé' ? motoriseTypePrice : 0}€</td>
+            <td className="price">{manoeuvreTypePrice}€</td>
           </tr>
           {ManoeuvreType === 'Manuel' && (
             <tr>
               <th>Outil de commande</th>
               <td>{ManualType}</td>
-              <td className="price">{getPrice(manualOptions, ManualType)}€</td>
+              <td className="price">{manualTypePrice}€</td>
             </tr>
           )}
           {ManoeuvreType === 'Motorisé' && (
@@ -145,10 +158,16 @@ const MultiStepInfoDisplay: React.FC = () => {
           </tr>
           <tr>
             <th>Total TTC</th>
-            <td className="price">{totalPrice.toFixed(2)}€</td>
+            <td className="price">{(totalPrice * 1.2).toFixed(2)}€</td>
           </tr>
         </tbody>
       </table>
+
+      {/* This component will calculate the dimension cost and update the state */}
+      <DimensionCostCalculator dimensions={dimensions} onCostCalculated={setDimensionCost} />
+      
+      {/* Button to export to PDF */}
+      <PDFExport dimensionCost={dimensionCost} totalPrice={totalPrice} />
     </div>
   );
 }

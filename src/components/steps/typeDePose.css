@@ -9,7 +9,6 @@
 .choice-btn {
   display: flex;
   background-color: rgba(5, 30, 80, 1);
-  border: 2px solid rgb(126, 126, 126); /* consolidated border property */
   border-radius: 5px;
   padding: 5px;
   gap: 20px;
@@ -17,7 +16,7 @@
 }
 
 .choice-btn:hover {
-  background-color: #73ff01;
+  background-color: rgba(179, 186, 230, 1);
   color: #000;
 }
 
@@ -36,11 +35,6 @@
   gap: 20px;
 }
 
-.choice-label {
-  vertical-align: middle;
-  font-weight: bold;
-  text-transform: capitalize;
-}
 
 .popup-image {
   width: 150px;

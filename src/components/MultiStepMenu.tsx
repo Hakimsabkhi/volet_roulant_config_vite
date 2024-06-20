@@ -5,7 +5,7 @@ import LameEtDimension from "./steps/LameEtdimension";
 import CouleurVolet from "./steps/couleurVolet";
 import TypeDePose from "./steps/typeDePose";
 import MultiStepInfoDisplay from "./MultiStepInfoDisplay";
-import DimensionCostCalculator from "./calculator/TotalCostCalculator";
+import TotalCostCalculateur from "./calculator/TotalCostCalculator";
 import Information from "./formulaire/info";
 import WarningPopup from "./WarningPopup";
 
@@ -161,7 +161,7 @@ const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
         </div>
       </div>
       {showInformation && <Information onClose={toggleInformationDisplay} />}
-      <DimensionCostCalculator />
+      <TotalCostCalculateur />
       {showWarningPopup && (
         <WarningPopup
           message="Encore des options doivent être sélectionnées avant de passer à l'étape suivante!"

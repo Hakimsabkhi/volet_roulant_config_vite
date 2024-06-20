@@ -1,5 +1,5 @@
 // calculator/DimensionCostCalculator.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface Dimensions {
   Largeur: number;
@@ -15,13 +15,11 @@ const DimensionCostCalculator: React.FC<DimensionCostCalculatorProps> = ({ dimen
   const area = dimensions.Largeur * dimensions.Hauteur;
   const DimensionCost = 0.00018 * area + 256.04298;
 
-  React.useEffect(() => {
+  useEffect(() => {
     onCostCalculated(DimensionCost);
   }, [DimensionCost, onCostCalculated]);
 
-  return (
-    <span className="price">{DimensionCost.toFixed(2)}€</span>
-  );
+  return null;
 }
 
 export default DimensionCostCalculator;

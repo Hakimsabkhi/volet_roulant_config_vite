@@ -18,9 +18,12 @@ const App: React.FC = () => {
 
   return (
     <div className="MainStyle">
+      <div className="boxConfig">
       <button className="Menu-button" onClick={toggleMenu}>
       <img src={ConfigIconIcon} alt="Outside View" className="button-icon" />
       </button>
+      <h2>configurer mon volet</h2>
+      </div>
       {menuVisible && (
         <div className="absolute-div">
           <MultiStepMenu onSelectionsChange={handleSelectionsChange} />

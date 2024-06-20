@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center; 
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   padding: 5px;
   cursor: pointer;
   display: flex;
@@ -26,7 +26,7 @@
 
 
 .color-choice:hover {
-  background-color: rgb(115, 255, 1);
+  background-color: rgba(179, 186, 230, 1);
   color: #000;
 }
 

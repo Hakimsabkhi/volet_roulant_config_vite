@@ -100,6 +100,7 @@ export const {
   setSortieDeCableType
 } = voletSlice.actions;
 
+export const selectLameSelection = (state: { volet: VoletState }) => state.volet.lameSelection;
 export const selectInstallationType = (state: { volet: VoletState }) => state.volet.installationType;
 export const selectSelectedColor = (state: { volet: VoletState }) => state.volet.selectedColor;
 export const selectDimensions = (state: { volet: VoletState }) => state.volet.dimensions;
