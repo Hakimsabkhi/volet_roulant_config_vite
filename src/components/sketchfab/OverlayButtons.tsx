@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Viewer.css';
-import outsideViewIcon from '../../assets/front_view.png';
-import insideViewIcon from '../../assets/back_view.png';
-import OsideViewIcon from '../../assets/oside_view.png';
-import IsideViewIcon from '../../assets/iside_view.png';
-import enableRotation from '../../assets/camera.png';
-import disableRotation from '../../assets/pause.png';
+import {
+  outsideViewIcon,
+  insideViewIcon,
+  OsideViewIcon,
+  IsideViewIcon,
+  enableRotation,
+  disableRotation,
+} from "../../assets/imageModule";
 
 interface OverlayButtonsProps {
   handleViewChange: (position: [number, number, number], target: [number, number, number], duration?: number, callback?: (err: any) => void) => void;

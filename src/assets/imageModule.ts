@@ -16,6 +16,12 @@ import Lame41Image from './lame-41.png'
 import Lame55Image from './lame-55.png'
 import Sans from './Sans.png'
 import Telecommand from './telecommande.png'
+import outsideViewIcon from './front_view.png';
+import insideViewIcon from './back_view.png';
+import OsideViewIcon from './oside_view.png';
+import IsideViewIcon from './iside_view.png';
+import enableRotation from './camera.png';
+import disableRotation from './pause.png';
+import ConfigIconIcon from './ConfigIcon.png';
 
-
-export { Droite, EnApplique, Gauche, EnInverse, Filaire, Radio, Manuel, Sangle, Manivelle, MoteurBeker, SousLanteau, SousLanteauInverse, AppliqueEnApplique, AppliqueEncastre, Lame41Image, Lame55Image ,Sans,Telecommand }
+export { Droite, EnApplique, Gauche, EnInverse, Filaire, Radio, Manuel, Sangle, Manivelle, MoteurBeker, SousLanteau, SousLanteauInverse, AppliqueEnApplique, AppliqueEncastre, Lame41Image, Lame55Image ,Sans,Telecommand, outsideViewIcon, insideViewIcon, OsideViewIcon, IsideViewIcon, enableRotation, disableRotation, ConfigIconIcon}

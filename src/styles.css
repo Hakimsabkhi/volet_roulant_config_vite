@@ -183,6 +183,7 @@ svg {
   gap: 10px;
 }
 .container {
+  padding-top: 10px;
   display: flex;
   justify-content: center;
 }

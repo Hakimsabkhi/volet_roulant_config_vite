@@ -3,7 +3,9 @@ import CameraPosition from "./components/sketchfab/CameraPosition";
 import Viewer from "./components/sketchfab/Viewer";
 import MultiStepMenu from "./components/MultiStepMenu";
 import "./styles.css";
-import ConfigIconIcon from './assets/ConfigIcon.png';
+import {
+  ConfigIconIcon
+} from "./assets/imageModule";
 
 const App: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0, z: 0 });
