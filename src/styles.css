@@ -170,17 +170,6 @@ svg {
   color: #ffffff;
 }
 
-/* Styling for navigation buttons */
-.multi-step-menu button.nav-btn {
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(3, 136, 123, 1);
-  color: white;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: 2px solid rgb(255 255 255);
-}
 
 .multi-step-menu button.nav-btn:hover {
   background-color:rgba(179, 186, 230, 1);
@@ -488,7 +477,6 @@ position: fixed;
 
   .NavBtnContainer {
     padding-bottom: 2%;
-    padding-right: 2%;
   }
 }
 

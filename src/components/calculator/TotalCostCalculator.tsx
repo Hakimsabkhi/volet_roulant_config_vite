@@ -7,7 +7,6 @@ import {
   motoriseOptions,
   interrupteurOptions,
   telecommandeOptions,
-  commandeOptions,
   manualOptions,
   sortieDeCableOptions,
   controlOptions,

@@ -14,6 +14,8 @@ import SousLanteauInverse from './en-inverse.png'
 import EnApplique from './en-applique.png'
 import Lame41Image from './lame-41.png'
 import Lame55Image from './lame-55.png'
+import Sans from './Sans.png'
+import Telecommand from './telecommande.png'
 
 
-export { Droite, EnApplique, Gauche, EnInverse, Filaire, Radio, Manuel, Sangle, Manivelle, MoteurBeker, SousLanteau, SousLanteauInverse, AppliqueEnApplique, AppliqueEncastre, Lame41Image, Lame55Image }
+export { Droite, EnApplique, Gauche, EnInverse, Filaire, Radio, Manuel, Sangle, Manivelle, MoteurBeker, SousLanteau, SousLanteauInverse, AppliqueEnApplique, AppliqueEncastre, Lame41Image, Lame55Image ,Sans,Telecommand }

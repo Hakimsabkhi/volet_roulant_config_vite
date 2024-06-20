@@ -5,7 +5,6 @@ import { setManoeuvreType, setManualType, setMotoriseType, setTelecommandeType, 
 import ManualSelector from './Manoeuvre/ManualSelector'
 import MotoriseSelector from './Manoeuvre/MotoriseSelector'
 import TelecommandeSelector from './Manoeuvre/TelecommandeSelector'
-import CommandeSelector from './Manoeuvre/CommandeSelector'
 import InterrupteurSelector from './Manoeuvre/InterrupteurSelector'
 import SortieDeCableSelector from './Manoeuvre/SortieDeCableSelector'
 import OptionSelector from './Manoeuvre/OptionSelector'

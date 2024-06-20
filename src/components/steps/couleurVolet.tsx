@@ -60,15 +60,15 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
   return (
     <div className="ColorBox">
       <div>
-        <h2>Couleur coffre et Coulisse</h2>
+        <h2>Coffre et Coulisse</h2>
         <div className="colors-row">{renderColorChoices('coulisse')}</div>
       </div>
       <div>
-        <h2>Couleur Tablier</h2>
+        <h2>Tablier</h2>
         <div className="colors-row">{renderColorChoices('tablier')}</div>
       </div>
       <div>
-        <h2>Couleur Lame Finale</h2>
+        <h2>Lame Finale</h2>
         <div className="colors-row">{renderColorChoices('lameFinale')}</div>
       </div>
     </div>

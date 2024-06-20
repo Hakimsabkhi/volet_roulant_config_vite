@@ -12,7 +12,7 @@ const WarningPopup: React.FC<WarningPopupProps> = ({ message, onClose }) => {
     <div className="popup-overlay">
       <div className="popup-content">
       <button onClick={onClose} className="close-button" ><img src={exitIcon} alt="Outside View" className="button-close" /></button>
-        <h3>Message d'erreur</h3>
+        <h3>Notification</h3>
         <p>{message}</p>
       </div>
     </div>

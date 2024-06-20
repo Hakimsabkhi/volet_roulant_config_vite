@@ -44,8 +44,8 @@ const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
   }, [selections, onSelectionsChange]);
 
   const steps = [
-    { id: 1, title: "Lame et Dimension", Component: LameEtDimension },
-    { id: 2, title: "Type de pose", Component: TypeDePose },
+    { id: 1, title: "Type de pose", Component: TypeDePose  },
+    { id: 2, title: "Lame et Dimension", Component: LameEtDimension },
     { id: 3, title: "Couleurs", Component: CouleurVolet },
     { id: 4, title: "Manoeuvre", Component: Manoeuvre },
     { id: 5, title: "Recap de votre produit", Component: MultiStepInfoDisplay },

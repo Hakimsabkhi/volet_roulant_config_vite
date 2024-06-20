@@ -70,9 +70,12 @@
   border: none;
   border-radius: 5px;
   background-color: rgba(5, 30, 80, 1);
-  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: rgba(3, 136, 123, 1);
+  color: white;
+  transition: background-color 0.3s ease;
+  border: 2px solid rgb(255 255 255);
 }
 
 .nav-btn:hover {

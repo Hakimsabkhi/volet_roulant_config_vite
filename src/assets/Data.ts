@@ -13,7 +13,9 @@ import {
   Sangle, 
   Manivelle, 
   Lame41Image, 
-  Lame55Image 
+  Lame55Image, 
+  Telecommand,
+  Sans
 } from './imageModule';
 
 const motoriseOptions = [
@@ -22,19 +24,14 @@ const motoriseOptions = [
 ];
 
 const interrupteurOptions = [
-  { label: 'Sans', description: "Pas d'interrupteur", image: ('../../assets/none.png'), price: 0 },
+  { label: 'Sans', description: "Pas d'interrupteur", image: Sans, price: 0 },
   { label: 'Encastree', description: 'Interrupteur encastré', image: AppliqueEncastre, price: 20 },
   { label: 'En applique', description: 'Interrupteur en applique', image: AppliqueEnApplique, price: 25 }
 ];
 
 const telecommandeOptions = [
-  { label: 'Sans', description: 'Sans télécommande', image: ('../../assets/Encastree.png'), price: 0 },
-  { label: 'Avec', description: 'Avec télécommande', image: ('../../assets/EnApplique.png'), price: 30 }
-];
-
-const commandeOptions = [
-  { label: 'Emetteur mural', description: 'Interrupteur encastré', image: ('../../assets/Encastree.png'), price: 15 },
-  { label: 'Télécommande', description: 'Interrupteur en applique', image: ('../../assets/EnApplique.png'), price: 25 }
+  { label: 'Sans', description: 'Sans télécommande', image: Sans, price: 0 },
+  { label: 'Avec', description: 'Avec télécommande', image: Telecommand, price: 30 }
 ];
 
 const manualOptions = [
@@ -43,8 +40,8 @@ const manualOptions = [
 ];
 
 const sortieDeCableOptions = [
-  { label: 'Gauche', description: 'Sortie de câble à gauche', image: Droite, price: 10 },
-  { label: 'Droite', description: 'Sortie de câble à droite', image: Gauche, price: 10 }
+  { label: 'Droite', description: 'Sortie de câble à droite', image: Gauche, price: 10 },
+  { label: 'Gauche', description: 'Sortie de câble à gauche', image: Droite, price: 10 }
 ];
 
 const controlOptions = [
@@ -111,8 +108,7 @@ const ColorImages: ColorOptions = {
 
 export { 
   motoriseOptions, 
-  interrupteurOptions, 
-  commandeOptions, 
+  interrupteurOptions,
   telecommandeOptions, 
   manualOptions, 
   sortieDeCableOptions, 
