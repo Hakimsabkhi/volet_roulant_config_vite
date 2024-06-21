@@ -101,6 +101,13 @@ input:invalid {
   margin: auto;
 }
 
+@media (max-width: 1550px) { 
+  
+  .PrixUnitaire {
+    display: none;}
+
+}
+
 
 @media (max-width: 1350px) {
   .formeBox {
@@ -123,5 +130,8 @@ input[type='tel'] {
   display: flex;
         flex-direction: column;
         justify-content: center;
+}
+.PrixUnitaire {
+  display: none;
 }
 }

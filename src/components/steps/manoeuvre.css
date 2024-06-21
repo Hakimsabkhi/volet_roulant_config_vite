@@ -102,10 +102,9 @@ gap: 10px;
   justify-content: space-around;
 }
 
-@media (max-width: 1050px) and (min-height: 800px) {
+@media (max-width: 1050px) {
   .button-image {
-    width: 50px;
-    height: 50px;
+    display: none;
   }
   .choice-description {
     display: none;

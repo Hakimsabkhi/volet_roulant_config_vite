@@ -89,7 +89,7 @@
   gap: 10px;
 }
 
-@media (max-width: 1050px) and (min-height: 800px) {
+@media (max-width: 1050px) {
   .cost-calculator-container {
     flex-direction: row;
     padding: 5px;

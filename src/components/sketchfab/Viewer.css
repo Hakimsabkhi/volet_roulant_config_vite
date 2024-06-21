@@ -6,9 +6,9 @@
   overflow: hidden; /* Ensures no overflow content is visible */
 }
 
-.overlay-buttons {  
+.overlay-buttons {
   position: fixed;
-  bottom: 5% ;
+  bottom: 5%;
   left: 50%;
   align-content: center;
   transform: translate(-50%, -50%);
@@ -33,10 +33,9 @@
   background: transparent; /* Transition to transparent background */
 }
 
-
 .loading-Viewer {
   position: absolute;
-  top: 0;  /* Align top edge with the container */
+  top: 0; /* Align top edge with the container */
   left: 0; /* Align left edge with the container */
   width: 100%; /* Stretch to cover full container width */
   height: 100%; /* Stretch to cover full container height */
@@ -44,7 +43,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.5); /* Optional: semi-transparent white background */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Optional: semi-transparent white background */
   z-index: 20; /* Ensures it is above the iframe */
   transition: filter 1s ease-out;
 }
@@ -72,41 +76,36 @@
   transition: width 4s ease-out; /* Animation matching the timeout */
 }
 
-
 .InteractionButton {
   width: 60px;
   height: 60px;
 }
 
-
-
 @media (max-width: 1050px) and (min-height: 660px) {
-  
-.InteractionButton {
-  width: 40px;
-  height: 40px;
-}
-.overlay-buttons {
-  top: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: center;
-  height: 50px;
-  width: 500px;
-}
-
+  .InteractionButton {
+    width: 40px;
+    height: 40px;
+  }
+  .overlay-buttons {
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    height: 50px;
+    width: 500px;
+  }
 }
 
 .toggle-button {
   width: 50px;
   height: 50px;
-  background: none; 
-  border: none;         
+  background: none;
+  border: none;
   cursor: pointer;
-  display: flex;    /* Use flexbox for centering */
+  display: flex; /* Use flexbox for centering */
   align-items: center; /* Vertically center */
   justify-content: center; /* Horizontally center */
   background-color: rgba(78, 78, 78, 0.705);
@@ -117,9 +116,16 @@
 
 .button-icon {
   width: 40px;
-  display: block; 
-  
+  display: block;
 }
 
-
-
+@media (max-width: 1550px) {
+  .toggle-button {
+    width: 30px;
+    height: 30px;
+  }
+  
+.button-icon {
+  width: 25px;
+}
+}

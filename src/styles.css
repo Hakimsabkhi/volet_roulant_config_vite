@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -14,7 +14,7 @@ button,
 #root {
   width: 100%;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
   color: #ffffff;
 }
@@ -39,12 +39,15 @@ body {
   cursor: pointer; /* Added to indicate it's clickable */
 }
 
-
 .ma-btn.selected,
 .choice-btn.selected,
 .color-label.selected,
 .color-choice.selected {
-  color: rgb(0, 0, 0); /* This will change the text color to blue when selected */
+  color: rgb(
+    0,
+    0,
+    0
+  ); /* This will change the text color to blue when selected */
   background-color: #ffffff;
 }
 
@@ -131,7 +134,6 @@ svg {
   transition: box-shadow 0.3s ease;
 }
 
-
 .choice-label {
   font-size: 13px;
   vertical-align: middle;
@@ -152,7 +154,6 @@ svg {
   gap: 5px;
 }
 
-
 .steps-menu {
   display: flex;
   flex-direction: column;
@@ -170,9 +171,8 @@ svg {
   color: #ffffff;
 }
 
-
 .multi-step-menu button.nav-btn:hover {
-  background-color:rgba(179, 186, 230, 1);
+  background-color: rgba(179, 186, 230, 1);
   color: #000;
 }
 
@@ -261,7 +261,7 @@ body {
   padding: 4px 0;
 }
 
-.color input[type='radio'] {
+.color input[type="radio"] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
@@ -290,7 +290,7 @@ body {
   margin-bottom: 10px;
 }
 
-.texture input[type='radio'] {
+.texture input[type="radio"] {
   position: absolute;
   opacity: 0;
   pointer-events: none;
@@ -399,7 +399,7 @@ body {
 .absolute-div {
   position: absolute;
   width: 21%;
-  top: 12%; 
+  top: 12%;
   left: 3%;
   z-index: 1000;
 }
@@ -420,10 +420,9 @@ body {
   z-index: 1000;
 }
 
-
 .boxConfig h2 {
   letter-spacing: 2px;
-  font-size: 20px;
+  font-size: 15px;
   z-index: 1000;
 }
 
@@ -436,7 +435,6 @@ body {
   align-items: center;
   gap: 20px;
 }
-
 
 @media (max-width: 1550px) {
   h1 {
@@ -455,21 +453,20 @@ body {
     margin-inline-end: 0px;
     font-weight: bold;
     font-size: 26px;
-}
+  }
 
   .multi-step-menu button.nav-btn {
     font-size: 12px;
   }
 
-  
-.steps-menu {
-position: fixed;
-        top: 13%;
-        left: 50%;
-        width: 50%;
-        padding: 5px;
-        transform: translate(-50%, -50%);
-}
+  .steps-menu {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 93%;
+    padding: 5px;
+    transform: translate(-50%, -50%);
+  }
 
   .multi-step-menu {
     height: 100%;
@@ -479,6 +476,25 @@ position: fixed;
   .NavBtnContainer {
     padding-bottom: 2%;
   }
+  .Menu-button {
+    width: 30px;
+    height: 30px;
+  }
+  .boxConfig {
+    top: 10%;
+    left: 0;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+  }
+  .boxConfig h2 {
+    font-size: 12px;
+  }
+  .container {
+    padding-top: 0;
+  }
+  .absolute-div {
+    height: 31%;}
 }
 
 @media (max-width: 1350px) {
@@ -500,19 +516,18 @@ position: fixed;
 
   .absolute-div {
     position: absolute;
-        width: 90%;
-        top: unset;
-        left: 5%;
-        z-index: 1000;
-        bottom: 4%;
-        height: 34%;
-}
+    width: 90%;
+    top: unset;
+    left: 5%;
+    z-index: 1000;
+    bottom: 4%;
+    height: 34%;
+  }
 
-.Menu-button {
-  top: 3%;
-  left: 3%;
-}
-
+  .Menu-button {
+    top: 3%;
+    left: 3%;
+  }
 }
 
 @media (max-width: 1220px) {
@@ -532,18 +547,18 @@ position: fixed;
     font-size: 10px;
   }
   .step-button {
-    font-size: 8px;}
+    font-size: 8px;
+  }
 }
 
 @media (max-width: 1100px) {
-
   h1 {
     font-size: 8px;
     text-transform: uppercase;
   }
 
   h2 {
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .multi-step-menu button.nav-btn {
@@ -553,10 +568,9 @@ position: fixed;
   h3 {
     font-size: 20px;
   }
-
 }
 
-@media (max-width: 1050px) and (min-height: 660px) {
+@media (max-width: 1050px){
   .MainStyle {
     flex-direction: column-reverse;
     height: 98%;
@@ -576,5 +590,17 @@ position: fixed;
   }
   .Lameetdimension {
     flex-direction: column;
+  }
+  .NavBtnContainer {
+    padding-top: 10px;
+}
+h2 {
+  font-size: 10px;}
+
+  .choice-label {
+    font-size: 9px;
+  }
+  h3 {
+    font-size: 16px;
   }
 }
