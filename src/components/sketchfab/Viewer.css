@@ -81,13 +81,13 @@
   height: 60px;
 }
 
-@media (max-width: 1050px) and (min-height: 660px) {
+@media (max-width: 1050px) {
   .InteractionButton {
     width: 40px;
     height: 40px;
   }
   .overlay-buttons {
-    top: 3%;
+    top: 2%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -95,7 +95,7 @@
     gap: 10px;
     justify-content: center;
     height: 50px;
-    width: 500px;
+    width: 100%;
   }
 }
 
@@ -126,6 +126,6 @@
   }
   
 .button-icon {
-  width: 25px;
+  width: 35px;
 }
 }
