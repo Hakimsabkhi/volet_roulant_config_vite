@@ -613,4 +613,7 @@ body {
   .boxConfig h2 {
     font-size: 13px;
   }
+  .absolute-div {
+    bottom: 1%;
+  }
 }

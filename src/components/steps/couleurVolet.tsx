@@ -20,6 +20,7 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
   const dispatch = useDispatch();
   const selectedColors: SelectedColor = useSelector((state: RootState) => state.volet.selectedColor);
   const [currentSection, setCurrentSection] = useState<keyof SelectedColor>('coulisse');
+  const [loading, setLoading] = useState(false);
   const isSmallScreen = useMediaQuery('(max-width: 1050px)');
 
   useEffect(() => {
@@ -32,8 +33,12 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
   const handleColorSelection = (colorName: string, category: keyof SelectedColor) => {
     dispatch(setColor({ color: colorName, category }));
     if (isSmallScreen) {
-      if (category === 'coulisse') setCurrentSection('tablier');
-      if (category === 'tablier') setCurrentSection('lameFinale');
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        if (category === 'coulisse') setCurrentSection('tablier');
+        if (category === 'tablier') setCurrentSection('lameFinale');
+      }, 1000); // 1 second delay
     }
   };
 
@@ -64,26 +69,22 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
     ));
   };
 
+  const renderSection = (section: keyof SelectedColor, title: string) => (
+    <div>
+      <h2>{title}</h2>
+      {loading ? (
+        <div className="loading-circle"></div>
+      ) : (
+        <div className="colors-row">{renderColorChoices(section)}</div>
+      )}
+    </div>
+  );
+
   return (
     <div className="ColorBox">
-      {(!isSmallScreen || currentSection === 'coulisse') && (
-        <div>
-          <h2>Coffre et Coulisse</h2>
-          <div className="colors-row">{renderColorChoices('coulisse')}</div>
-        </div>
-      )}
-      {(!isSmallScreen || currentSection === 'tablier') && (
-        <div>
-          <h2>Tablier</h2>
-          <div className="colors-row">{renderColorChoices('tablier')}</div>
-        </div>
-      )}
-      {(!isSmallScreen || currentSection === 'lameFinale') && (
-        <div>
-          <h2>Lame Finale</h2>
-          <div className="colors-row">{renderColorChoices('lameFinale')}</div>
-        </div>
-      )}
+      {(!isSmallScreen || currentSection === 'coulisse') && renderSection('coulisse', 'Coffre et Coulisse')}
+      {(!isSmallScreen || currentSection === 'tablier') && renderSection('tablier', 'Tablier')}
+      {(!isSmallScreen || currentSection === 'lameFinale') && renderSection('lameFinale', 'Lame Finale')}
     </div>
   );
 };
