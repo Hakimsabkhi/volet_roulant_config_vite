@@ -82,9 +82,9 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
 
   return (
     <div className="ColorBox">
-      {(!isSmallScreen || currentSection === 'coulisse') && renderSection('coulisse', 'Coffre et Coulisse')}
-      {(!isSmallScreen || currentSection === 'tablier') && renderSection('tablier', 'Tablier')}
-      {(!isSmallScreen || currentSection === 'lameFinale') && renderSection('lameFinale', 'Lame Finale')}
+      {(!isSmallScreen || currentSection === 'coulisse') && renderSection('coulisse', 'Couleurs de Coffre et Coulisse')}
+      {(!isSmallScreen || currentSection === 'tablier') && renderSection('tablier', 'Couleurs de Tablier')}
+      {(!isSmallScreen || currentSection === 'lameFinale') && renderSection('lameFinale', 'Couleurs de Lame Finale')}
     </div>
   );
 };
