@@ -120,12 +120,16 @@
 }
 
 @media (max-width: 1550px) {
-  .toggle-button {
-    width: 30px;
-    height: 30px;
-  }
   
 .button-icon {
   width: 35px;
+}
+}
+
+
+@media (max-width: 1050px)  {
+  .toggle-button {
+  width: 45px;
+  height: 45px;
 }
 }
