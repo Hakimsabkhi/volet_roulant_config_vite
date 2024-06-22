@@ -36,7 +36,6 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
         if (MotoriseType === 'Radio') {
           isEnabled = TelecommandeType !== '';
         } else if (MotoriseType === 'Filaire') {
-        } else if (MotoriseType === 'Filaire') {
           isEnabled = InterrupteurType !== '' && SortieDeCableType !== '';
         }
       }
@@ -107,7 +106,7 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
       {isMobile && isConfigured ? (
         <div className="completion-box">
           <p className="completion-message">Votre volet est bien configuré</p>
-          <button onClick={handleReconfigure} className="nav-btn" >Reconfigure</button>
+          <button onClick={handleReconfigure} className="nav-btn">Reconfigure</button>
         </div>
       ) : (
         <>
@@ -125,7 +124,7 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
           {(!isMobile || visibleSection === 'Motorise') && ManoeuvreType === 'Motorisé' && !loading && (
             <div className="ManoeuvreSectionG">
               <div className="ManoeuvreSection">
-                <div><h2 className="text">{manoeuvreConfig[1]}</h2> </div>
+                <div><h2 className="text">{manoeuvreConfig[1]}</h2></div>
                 <div className="OptionSection">
                   <MotoriseSelector selectedOption={MotoriseType} handleChange={handleChange(setMotoriseType)} />
                 </div>
