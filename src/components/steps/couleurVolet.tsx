@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setColor } from '../../features/voletSlice'
-import './couleurVolet.css'
-import { ColorImages } from '../../assets/Data'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setColor } from '../../features/voletSlice';
+import './couleurVolet.css';
+import { ColorImages } from '../../assets/Data';
 import { RootState } from '../../store'; // Assuming you have a RootState type defined in your store file
 import useMediaQuery from './useMediaQuery'; // Adjust the path as necessary
 
@@ -19,27 +19,49 @@ interface CouleurVoletProps {
 const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
   const dispatch = useDispatch();
   const selectedColors: SelectedColor = useSelector((state: RootState) => state.volet.selectedColor);
-  const [currentSection, setCurrentSection] = useState<keyof SelectedColor>('coulisse');
+  const isMobile = useMediaQuery('(max-width: 1050px)');
   const [loading, setLoading] = useState(false);
-  const isSmallScreen = useMediaQuery('(max-width: 1050px)');
+  const [visibleSection, setVisibleSection] = useState<keyof SelectedColor>('coulisse');
+  const [isConfigured, setIsConfigured] = useState(false);
 
   useEffect(() => {
     const allSelected = Object.keys(ColorImages).every(
       (category) => selectedColors[category as keyof SelectedColor] && selectedColors[category as keyof SelectedColor] !== ''
     );
     enableNextButton(allSelected);
-  }, [selectedColors, enableNextButton]);
+
+    if (isMobile && allSelected) {
+      setIsConfigured(true);
+    } else {
+      setIsConfigured(false);
+    }
+  }, [selectedColors, enableNextButton, isMobile]);
 
   const handleColorSelection = (colorName: string, category: keyof SelectedColor) => {
-    dispatch(setColor({ color: colorName, category }));
-    if (isSmallScreen) {
+    if (isMobile) {
       setLoading(true);
       setTimeout(() => {
+        dispatch(setColor({ color: colorName, category }));
         setLoading(false);
-        if (category === 'coulisse') setCurrentSection('tablier');
-        if (category === 'tablier') setCurrentSection('lameFinale');
-      }, 1000); // 1 second delay
+        if (category === 'coulisse') setVisibleSection('tablier');
+        if (category === 'tablier') setVisibleSection('lameFinale');
+        if (category === 'lameFinale') setIsConfigured(true);
+      }, 1000); // Simulate loading delay
+    } else {
+      dispatch(setColor({ color: colorName, category }));
+      if (category === 'coulisse') setVisibleSection('tablier');
+      if (category === 'tablier') setVisibleSection('lameFinale');
+      if (category === 'lameFinale') setIsConfigured(true);
     }
+  };
+
+  const handleReconfigure = () => {
+    setIsConfigured(false);
+    setVisibleSection('coulisse');
+    // Optionally reset selected colors
+    dispatch(setColor({ color: '', category: 'coulisse' }));
+    dispatch(setColor({ color: '', category: 'tablier' }));
+    dispatch(setColor({ color: '', category: 'lameFinale' }));
   };
 
   const renderColorChoices = (category: keyof SelectedColor) => {
@@ -70,21 +92,32 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
   };
 
   const renderSection = (section: keyof SelectedColor, title: string) => (
-    <div>
-      <h2>{title}</h2>
-      {loading ? (
-        <div className="loading-circle"></div>
-      ) : (
-        <div className="colors-row">{renderColorChoices(section)}</div>
-      )}
+    <div className="ManoeuvreSection">
+      <h2 className="text">{title}</h2>
+      <div className="OptionSection">
+        {loading ? (
+          <div className="loading-circle"></div>
+        ) : (
+          <div className="colors-row">{renderColorChoices(section)}</div>
+        )}
+      </div>
     </div>
   );
 
   return (
-    <div className="ColorBox">
-      {(!isSmallScreen || currentSection === 'coulisse') && renderSection('coulisse', 'Couleurs de Coffre et Coulisse')}
-      {(!isSmallScreen || currentSection === 'tablier') && renderSection('tablier', 'Couleurs de Tablier')}
-      {(!isSmallScreen || currentSection === 'lameFinale') && renderSection('lameFinale', 'Couleurs de Lame Finale')}
+    <div className="ma-containerG">
+      {isMobile && isConfigured ? (
+        <div className="completion-box">
+          <p className="completion-message">Votre volet est bien colorisé</p>
+          <button onClick={handleReconfigure} className="nav-btn">Recoloriser</button>
+        </div>
+      ) : (
+        <>
+          {(!isMobile || visibleSection === 'coulisse') && renderSection('coulisse', 'Couleurs de Coffre et Coulisse')}
+          {(!isMobile || visibleSection === 'tablier') && renderSection('tablier', 'Couleurs de Tablier')}
+          {(!isMobile || visibleSection === 'lameFinale') && renderSection('lameFinale', 'Couleurs de Lame Finale')}
+        </>
+      )}
     </div>
   );
 };

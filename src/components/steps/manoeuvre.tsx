@@ -36,6 +36,7 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
         if (MotoriseType === 'Radio') {
           isEnabled = TelecommandeType !== '';
         } else if (MotoriseType === 'Filaire') {
+        } else if (MotoriseType === 'Filaire') {
           isEnabled = InterrupteurType !== '' && SortieDeCableType !== '';
         }
       }

@@ -49,9 +49,9 @@
 @media (max-width: 1050px){
 .colors-row > * {
   flex: 1 0 30%; /* Each item has a basis of 30% of the container width */}
+
   .ColorBox {
-    flex-direction: row;
-    gap: 6px;
+    flex-direction: column;
   }
   
   .i {
