@@ -99,6 +99,12 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
   const handleReconfigure = () => {
     setIsConfigured(false);
     setVisibleSection('Manoeuvre');
+    dispatch(setManoeuvreType(''));
+    dispatch(setManualType(''));
+    dispatch(setMotoriseType(''));
+    dispatch(setTelecommandeType(''));
+    dispatch(setInterrupteurType(''));
+    dispatch(setSortieDeCableType(''));
   };
 
   return (

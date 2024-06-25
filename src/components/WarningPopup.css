@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Darker background for better visibility */
+  background: rgba(0, 0, 0, 0.8); /* Darker background for better visibility */
   display: flex;
   justify-content: center;
   align-items: center;

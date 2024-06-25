@@ -47,6 +47,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
   };
 
   return (
+    <div className="popup-overlay">
     <form className="formeBox" onSubmit={handleSubmit}>
       <div className="divBut">
         <button type="button" className="close-button" onClick={handleClose}>
@@ -148,6 +149,7 @@ const Information: React.FC<InformationProps> = ({ onClose }) => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 
