@@ -522,7 +522,7 @@ body {
     left: 5%;
     z-index: 1000;
     bottom: 4%;
-    height: 34%;
+    height: fit-content;
   }
 
   .Menu-button {
@@ -615,5 +615,9 @@ body {
   }
   .absolute-div {
     bottom: 1%;
+  }
+
+  .StepStyleManoeuvre {
+    gap: 0px;
   }
 }

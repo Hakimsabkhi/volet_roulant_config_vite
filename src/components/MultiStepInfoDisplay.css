@@ -25,12 +25,12 @@ gap: 10px;
   color: black;
 }
 
-@media (max-width: 1050px) and (min-height: 660px) {
+@media (max-width: 1050px) {
   .info-display td, .info-display th {
     padding: 3px;
-    font-size: 10px; 
+    font-size: 9px; 
   }
   .info-display {
-    flex-direction: row;
+    flex-direction: column;
 }
 }
