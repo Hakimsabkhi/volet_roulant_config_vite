@@ -38,13 +38,14 @@ const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
   const [isNextButtonEnabled, setIsNextButtonEnabled] = useState(false);
   const [enabledSteps, setEnabledSteps] = useState<EnabledSteps>({ 1: true });
   const [showWarningPopup, setShowWarningPopup] = useState(false);
+  const [isMobileConfigured, setIsMobileConfigured] = useState(false);
 
   useEffect(() => {
     onSelectionsChange(selections);
   }, [selections, onSelectionsChange]);
 
   const steps = [
-    { id: 1, title: "Type de pose", Component: TypeDePose  },
+    { id: 1, title: "Type de pose", Component: TypeDePose },
     { id: 2, title: "Lame et Dimension", Component: LameEtDimension },
     { id: 3, title: "Couleurs", Component: CouleurVolet },
     { id: 4, title: "Manoeuvre", Component: Manoeuvre },
@@ -107,6 +108,7 @@ const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
           setSelections={setSelections}
           selections={selections}
           enableNextButton={enableNextButton}
+          setIsMobileConfigured={setIsMobileConfigured} // Pass it here
         />
       );
     }
@@ -141,13 +143,17 @@ const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
               Étape Précédente
             </button>
           )}
-          {currentStep < steps.length && (
-            <button onClick={nextStep} className="nav-btn">
-              {currentStep === steps.length - 1
-                ? "Finaliser"
-                : "Étape Suivante"}
-            </button>
+          {currentStep < steps.length && currentStep !== steps.length && (
+            (isNextButtonEnabled || (isMobileConfigured && isNextButtonEnabled)) && (
+              <button onClick={nextStep} className="nav-btn">
+                {currentStep === steps.length - 1
+                  ? "Finaliser"
+                  : "Étape Suivante"}
+              </button>
+            
+            )
           )}
+        
           {currentStep === steps.length && (
             <>
               <button onClick={modifyProduct} className="nav-btn">

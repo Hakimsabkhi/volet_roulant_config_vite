@@ -14,10 +14,11 @@ interface SelectedColor {
 
 interface CouleurVoletProps {
   enableNextButton: (isEnabled: boolean) => void;
+  setIsMobileConfigured: (isConfigured: boolean) => void; // Add this line
 }
 
-const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
-  const dispatch = useDispatch();
+const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton, setIsMobileConfigured }) => {
+  const dispatch = useDispatch(); // Make sure useDispatch is correctly imported and used
   const selectedColors: SelectedColor = useSelector((state: RootState) => state.volet.selectedColor);
   const isMobile = useMediaQuery('(max-width: 1050px)');
   const [loading, setLoading] = useState(false);
@@ -32,10 +33,12 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
 
     if (isMobile && allSelected) {
       setIsConfigured(true);
+      setIsMobileConfigured(true); // Add this line
     } else {
       setIsConfigured(false);
+      setIsMobileConfigured(false); // Add this line
     }
-  }, [selectedColors, enableNextButton, isMobile]);
+  }, [selectedColors, enableNextButton, isMobile, setIsMobileConfigured]);
 
   const handleColorSelection = (colorName: string, category: keyof SelectedColor) => {
     if (isMobile) {
@@ -57,6 +60,7 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton }) => {
 
   const handleReconfigure = () => {
     setIsConfigured(false);
+    setIsMobileConfigured(false); // Add this line
     setVisibleSection('coulisse');
     // Optionally reset selected colors
     dispatch(setColor({ color: '', category: 'coulisse' }));

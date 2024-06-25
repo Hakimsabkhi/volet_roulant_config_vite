@@ -28,7 +28,7 @@ gap: 10px;
 @media (max-width: 1050px) {
   .info-display td, .info-display th {
     padding: 3px;
-    font-size: 9px; 
+    font-size: 10px; 
   }
   .info-display {
     flex-direction: column;
