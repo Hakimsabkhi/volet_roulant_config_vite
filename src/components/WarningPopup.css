@@ -49,3 +49,21 @@
   justify-content: flex-end;
   width: 100%;
 }
+
+
+
+@media (max-width: 1050px) {
+
+  .popup-content h3 {
+    margin-top: 1px;
+    font-size: 22px;
+}
+
+  .popup-content {
+    width: 80%;
+  }
+
+  .popup-content p {
+    font-size: 14px;
+}
+}
