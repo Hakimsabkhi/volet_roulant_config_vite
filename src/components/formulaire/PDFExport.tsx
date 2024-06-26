@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 import "./PDFExport.css";
 
 import {
-  motoriseOptions,
-  interrupteurOptions,
-  telecommandeOptions,
-  manualOptions,
-  sortieDeCableOptions,
-  controlOptions,
+  optionsMotorisations,
+  optionsInterrupteur,
+  optionsTelecomande,
+  optionCommandeManuel,
+  sortieDeCable,
+  optionManoeuvre,
   poseOptions,
   lameChoices,
 } from "../../assets/Data";
@@ -35,28 +35,28 @@ const PDFExport: React.FC<{ dimensionCost: number; totalPrice: number }> = ({
   const selectedLameFinaleColor = useSelector(
     (state: RootState) => state.volet.selectedColor.lameFinale
   );
-  const lameSelection = useSelector(
-    (state: RootState) => state.volet.lameSelection
+  const lameSelected = useSelector(
+    (state: RootState) => state.volet.lameSelected
   );
   const dimensions = useSelector((state: RootState) => state.volet.dimensions);
-  const installationType = useSelector(
-    (state: RootState) => state.volet.installationType
+  const poseInstalled = useSelector(
+    (state: RootState) => state.volet.poseInstalled
   );
-  const ManoeuvreType = useSelector(
-    (state: RootState) => state.volet.ManoeuvreType
+  const manoeuvreSelected = useSelector(
+    (state: RootState) => state.volet.manoeuvreSelected
   );
-  const ManualType = useSelector((state: RootState) => state.volet.ManualType);
-  const MotoriseType = useSelector(
-    (state: RootState) => state.volet.MotoriseType
+  const commandeManualSelected = useSelector((state: RootState) => state.volet.commandeManualSelected);
+  const optionMotorisationSelected = useSelector(
+    (state: RootState) => state.volet.optionMotorisationSelected
   );
-  const TelecommandeType = useSelector(
-    (state: RootState) => state.volet.TelecommandeType
+  const optionTelecomandeSelected = useSelector(
+    (state: RootState) => state.volet.optionTelecomandeSelected
   );
-  const InterrupteurType = useSelector(
-    (state: RootState) => state.volet.InterrupteurType
+  const optionInterrupteurSelected = useSelector(
+    (state: RootState) => state.volet.optionInterrupteurSelected
   );
-  const SortieDeCableType = useSelector(
-    (state: RootState) => state.volet.SortieDeCableType
+  const sortieDeCableSelected = useSelector(
+    (state: RootState) => state.volet.sortieDeCableSelected
   );
 
   const exportToPDF = () => {
@@ -86,8 +86,8 @@ const PDFExport: React.FC<{ dimensionCost: number; totalPrice: number }> = ({
       body: [
         [
           "Type de Lame",
-          lameSelection,
-          `${getPrice(lameChoices, lameSelection)}€`,
+          lameSelected,
+          `${getPrice(lameChoices, lameSelected)}€`,
         ],
         [
           "Dimensions",
@@ -96,8 +96,8 @@ const PDFExport: React.FC<{ dimensionCost: number; totalPrice: number }> = ({
         ],
         [
           "Type d'Installation",
-          installationType,
-          `${getPrice(poseOptions, installationType)}€`,
+          poseInstalled,
+          `${getPrice(poseOptions, poseInstalled)}€`,
         ],
         [
           "Couleurs",
@@ -106,45 +106,45 @@ const PDFExport: React.FC<{ dimensionCost: number; totalPrice: number }> = ({
         ],
         [
           "Type de Manoeuvre",
-          ManoeuvreType,
-          `${getPrice(controlOptions, ManoeuvreType)}€`,
+          manoeuvreSelected,
+          `${getPrice(optionManoeuvre, manoeuvreSelected)}€`,
         ],
-        ...(ManoeuvreType === "Manuel"
+        ...(manoeuvreSelected === "Manuel"
           ? [
               [
                 "Outil de commande",
-                ManualType,
-                `${getPrice(manualOptions, ManualType)}€`,
+                commandeManualSelected,
+                `${getPrice(optionCommandeManuel, commandeManualSelected)}€`,
               ],
             ]
           : []),
-        ...(ManoeuvreType === "Motorisé"
+        ...(manoeuvreSelected === "Motorisé"
           ? [
               [
                 "Type de motorisation",
-                MotoriseType,
-                `${getPrice(motoriseOptions, MotoriseType)}€`,
+                optionMotorisationSelected,
+                `${getPrice(optionsMotorisations, optionMotorisationSelected)}€`,
               ],
-              ...(MotoriseType === "Radio"
+              ...(optionMotorisationSelected === "Radio"
                 ? [
                     [
                       "Télécommande",
-                      TelecommandeType,
-                      `${getPrice(telecommandeOptions, TelecommandeType)}€`,
+                      optionTelecomandeSelected,
+                      `${getPrice(optionsTelecomande, optionTelecomandeSelected)}€`,
                     ],
                   ]
                 : []),
-              ...(MotoriseType === "Filaire"
+              ...(optionMotorisationSelected === "Filaire"
                 ? [
                     [
                       "Interrupteur",
-                      InterrupteurType,
-                      `${getPrice(interrupteurOptions, InterrupteurType)}€`,
+                      optionInterrupteurSelected,
+                      `${getPrice(optionsInterrupteur, optionInterrupteurSelected)}€`,
                     ],
                     [
                       "Sortie de cable",
-                      SortieDeCableType,
-                      `${getPrice(sortieDeCableOptions, SortieDeCableType)}€`,
+                      sortieDeCableSelected,
+                      `${getPrice(sortieDeCable, sortieDeCableSelected)}€`,
                     ],
                   ]
                 : []),

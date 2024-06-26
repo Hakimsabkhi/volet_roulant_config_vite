@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectInstallationType } from '../../features/voletSlice';
+import { selectposeInstalled } from '../../features/voletSlice';
 import OverlayButtons from './OverlayButtons';
 import TextureUpdater from './TextureUpdater';
 import APIDataFetcher from './APIDataFetcher';
@@ -16,7 +16,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
   const [tablierTexture, setTablierTexture] = useState<string>("cec33a451ee5427687bfb05f847cdf09");
   const [lameFinaleTexture, setLameFinaleTexture] = useState<string>("9a7c42640fa244fc828f6bb88c6b24ca");
 
-  const installationType = useSelector(selectInstallationType);
+  const poseInstalled = useSelector(selectposeInstalled);
 
   useEffect(() => {
     const iframe = document.getElementById('sketchfab-viewer') as HTMLIFrameElement;
@@ -212,7 +212,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
 
   useEffect(() => {
     if (apiClient) {
-      if (installationType === 'En applique') {
+      if (poseInstalled === 'En applique') {
         apiClient.show(3, (err: any) => {
           if (!err) {
             apiClient.hide(97, (err: any) => {
@@ -225,7 +225,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
             console.error('Failed to show node 3:', err);
           }
         });
-      } else if (installationType === 'sous lanteau') {
+      } else if (poseInstalled === 'sous lanteau') {
         apiClient.show(97, (err: any) => {
           if (!err) {
             apiClient.hide(3, (err: any) => {
@@ -238,7 +238,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
             console.error('Failed to show node 97:', err);
           }
         });
-      } else if (installationType === 'sous lanteau inverse') {
+      } else if (poseInstalled === 'sous lanteau inverse') {
         apiClient.show(182, (err: any) => {
           if (!err) {
             apiClient.hide(3, (err: any) => {
@@ -253,7 +253,7 @@ const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
         });
       }
     }
-  }, [installationType, apiClient]);
+  }, [poseInstalled, apiClient]);
 
   return (
     <div className="viewer-container">

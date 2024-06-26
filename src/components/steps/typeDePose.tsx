@@ -1,6 +1,6 @@
 import React, { useState, useEffect, MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setInstallationType, selectInstallationType } from '../../features/voletSlice';
+import { setposeInstalled, selectposeInstalled } from '../../features/voletSlice';
 import "./typeDePose.css";
 import { poseOptions } from '../../assets/Data';
 import { TypeDePoseProps } from "../../interfaces";
@@ -8,14 +8,14 @@ import { TypeDePoseProps } from "../../interfaces";
 
 function TypeDePose({ enableNextButton }: TypeDePoseProps) {
   const dispatch = useDispatch();
-  const installationType = useSelector(selectInstallationType);
+  const poseInstalled = useSelector(selectposeInstalled);
   const [hoveredChoice, setHoveredChoice] = useState<any>(null);
   const [popupPosition, setPopupPosition] = useState<{ top: number, left: number }>({ top: 0, left: 0 });
 
   useEffect(() => {
-    console.log("useEffect Triggered: ", { installationType });
-    enableNextButton(installationType !== '');
-  }, [installationType]);
+    console.log("useEffect Triggered: ", { poseInstalled });
+    enableNextButton(poseInstalled !== '');
+  }, [poseInstalled]);
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLLabelElement>, choice: any) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -33,7 +33,7 @@ function TypeDePose({ enableNextButton }: TypeDePoseProps) {
         {poseOptions.map((choice) => (
           <label 
             key={choice.label} 
-            className={`choice-btn ${choice.label === installationType ? "selected" : ""}`} 
+            className={`choice-btn ${choice.label === poseInstalled ? "selected" : ""}`} 
             onMouseEnter={(e) => handleMouseEnter(e, choice)} 
             onMouseLeave={() => setHoveredChoice(null)}>
             <img src={choice.image} alt={choice.label} className="button-image" />
@@ -43,9 +43,9 @@ function TypeDePose({ enableNextButton }: TypeDePoseProps) {
                 <input
                   type="checkbox"
                   className="hidden-checkbox"
-                  checked={choice.label === installationType}
+                  checked={choice.label === poseInstalled}
                   id={`checkbox-${choice.label}`}
-                  onChange={() => dispatch(setInstallationType(choice.label))}
+                  onChange={() => dispatch(setposeInstalled(choice.label))}
                   required
                 />
                 <label htmlFor={`checkbox-${choice.label}`}></label>

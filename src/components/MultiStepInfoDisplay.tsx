@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import "./MultiStepInfoDisplay.css";
 import DimensionCostCalculator from "./calculator/dimensionCostCalculator";
 import {
-  motoriseOptions,
-  interrupteurOptions,
-  telecommandeOptions,
-  manualOptions,
-  sortieDeCableOptions,
-  controlOptions,
+  optionsMotorisations,
+  optionsInterrupteur,
+  optionsTelecomande,
+  optionCommandeManuel,
+  sortieDeCable,
+  optionManoeuvre,
   poseOptions,
   lameChoices,
 } from "../assets/Data";
@@ -35,49 +35,49 @@ const MultiStepInfoDisplay: React.FC = () => {
   const selectedLameFinaleColor = useSelector(
     (state: RootState) => state.volet.selectedColor.lameFinale
   );
-  const lameSelection = useSelector(
-    (state: RootState) => state.volet.lameSelection
+  const lameSelected = useSelector(
+    (state: RootState) => state.volet.lameSelected
   );
   const dimensions = useSelector((state: RootState) => state.volet.dimensions);
-  const installationType = useSelector(
-    (state: RootState) => state.volet.installationType
+  const poseInstalled = useSelector(
+    (state: RootState) => state.volet.poseInstalled
   );
-  const ManoeuvreType = useSelector(
-    (state: RootState) => state.volet.ManoeuvreType
+  const manoeuvreSelected = useSelector(
+    (state: RootState) => state.volet.manoeuvreSelected
   );
-  const ManualType = useSelector((state: RootState) => state.volet.ManualType);
-  const MotoriseType = useSelector(
-    (state: RootState) => state.volet.MotoriseType
+  const commandeManualSelected = useSelector((state: RootState) => state.volet.commandeManualSelected);
+  const optionMotorisationSelected = useSelector(
+    (state: RootState) => state.volet.optionMotorisationSelected
   );
-  const TelecommandeType = useSelector(
-    (state: RootState) => state.volet.TelecommandeType
+  const optionTelecomandeSelected = useSelector(
+    (state: RootState) => state.volet.optionTelecomandeSelected
   );
-  const InterrupteurType = useSelector(
-    (state: RootState) => state.volet.InterrupteurType
+  const optionInterrupteurSelected = useSelector(
+    (state: RootState) => state.volet.optionInterrupteurSelected
   );
-  const SortieDeCableType = useSelector(
-    (state: RootState) => state.volet.SortieDeCableType
+  const sortieDeCableSelected = useSelector(
+    (state: RootState) => state.volet.sortieDeCableSelected
   );
 
-  const lameSelectionPrice = getPrice(lameChoices, lameSelection);
-  const installationTypePrice = getPrice(poseOptions, installationType);
-  const manoeuvreTypePrice = getPrice(controlOptions, ManoeuvreType);
-  const motoriseTypePrice = getPrice(motoriseOptions, MotoriseType);
-  const telecommandePrice = getPrice(telecommandeOptions, TelecommandeType);
-  const interrupteurPrice = getPrice(interrupteurOptions, InterrupteurType);
-  const sortieDeCablePrice = getPrice(sortieDeCableOptions, SortieDeCableType);
-  const manualTypePrice = getPrice(manualOptions, ManualType);
+  const lameSelectedPrice = getPrice(lameChoices, lameSelected);
+  const poseInstalledPrice = getPrice(poseOptions, poseInstalled);
+  const manoeuvreSelectedPrice = getPrice(optionManoeuvre, manoeuvreSelected);
+  const optionMotorisationSelectedPrice = getPrice(optionsMotorisations, optionMotorisationSelected);
+  const telecommandePrice = getPrice(optionsTelecomande, optionTelecomandeSelected);
+  const interrupteurPrice = getPrice(optionsInterrupteur, optionInterrupteurSelected);
+  const sortieDeCablePrice = getPrice(sortieDeCable, sortieDeCableSelected);
+  const commandeManualSelectedPrice = getPrice(optionCommandeManuel, commandeManualSelected);
 
   // Simplistic total price calculation for demonstration
   const totalPrice =
-    lameSelectionPrice +
-    installationTypePrice +
-    manoeuvreTypePrice +
-    motoriseTypePrice +
+    lameSelectedPrice +
+    poseInstalledPrice +
+    manoeuvreSelectedPrice +
+    optionMotorisationSelectedPrice +
     telecommandePrice +
     interrupteurPrice +
     sortieDeCablePrice +
-    manualTypePrice +
+    commandeManualSelectedPrice +
     dimensionCost;
 
   return (
@@ -86,8 +86,8 @@ const MultiStepInfoDisplay: React.FC = () => {
         <tbody>
           <tr>
             <th>Type de Lame</th>
-            <td>{lameSelection}</td>
-            <td className="price">{lameSelectionPrice}€</td>
+            <td>{lameSelected}</td>
+            <td className="price">{lameSelectedPrice}€</td>
           </tr>
           <tr>
             <th>Dimensions</th>
@@ -98,8 +98,8 @@ const MultiStepInfoDisplay: React.FC = () => {
           </tr>
           <tr>
             <th>Type d'Installation</th>
-            <td>{installationType}</td>
-            <td className="price">{installationTypePrice}€</td>
+            <td>{poseInstalled}</td>
+            <td className="price">{poseInstalledPrice}€</td>
           </tr>
           <tr>
             <th>Couleurs</th>
@@ -111,40 +111,40 @@ const MultiStepInfoDisplay: React.FC = () => {
           </tr>
           <tr>
             <th>Type de Manoeuvre</th>
-            <td>{ManoeuvreType}</td>
-            <td className="price">{manoeuvreTypePrice}€</td>
+            <td>{manoeuvreSelected}</td>
+            <td className="price">{manoeuvreSelectedPrice}€</td>
           </tr>
-          {ManoeuvreType === "Manuel" && (
+          {manoeuvreSelected === "Manuel" && (
             <tr>
               <th>Outil de commande</th>
-              <td>{ManualType}</td>
-              <td className="price">{manualTypePrice}€</td>
+              <td>{commandeManualSelected}</td>
+              <td className="price">{commandeManualSelectedPrice}€</td>
             </tr>
           )}
-          {ManoeuvreType === "Motorisé" && (
+          {manoeuvreSelected === "Motorisé" && (
             <>
               <tr>
                 <th>Type de motorisation</th>
-                <td>{MotoriseType}</td>
-                <td className="price">{motoriseTypePrice}€</td>
+                <td>{optionMotorisationSelected}</td>
+                <td className="price">{optionMotorisationSelectedPrice}€</td>
               </tr>
-              {MotoriseType === "Radio" && (
+              {optionMotorisationSelected === "Radio" && (
                 <tr>
                   <th>Télécommande</th>
-                  <td>{TelecommandeType}</td>
+                  <td>{optionTelecomandeSelected}</td>
                   <td className="price">{telecommandePrice}€</td>
                 </tr>
               )}
-              {MotoriseType === "Filaire" && (
+              {optionMotorisationSelected === "Filaire" && (
                 <>
                   <tr>
                     <th>Interrupteur</th>
-                    <td>{InterrupteurType}</td>
+                    <td>{optionInterrupteurSelected}</td>
                     <td className="price">{interrupteurPrice}€</td>
                   </tr>
                   <tr>
                     <th>Sortie de cable</th>
-                    <td>{SortieDeCableType}</td>
+                    <td>{sortieDeCableSelected}</td>
                     <td className="price">{sortieDeCablePrice}€</td>
                   </tr>
                 </>

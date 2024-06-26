@@ -6,12 +6,12 @@ import DimensionCostCalculator from './dimensionCostCalculator';
 import { productDetails } from "../../interfaces";
 
 import {
-  motoriseOptions,
-  interrupteurOptions,
-  telecommandeOptions,
-  manualOptions,
-  sortieDeCableOptions,
-  controlOptions,
+  optionsMotorisations,
+  optionsInterrupteur,
+  optionsTelecomande,
+  optionCommandeManuel,
+  sortieDeCable,
+  optionManoeuvre,
   poseOptions,
   lameChoices
 } from '../../assets/Data';
@@ -19,14 +19,14 @@ import {
 // Import selectors
 import {
   selectDimensions,
-  selectInstallationType,
+  selectposeInstalled,
   selectManoeuvre,
   selectManual,
   selectMotorise,
   selectTelecommande,
   selectInterrupteur,
   selectSortieDeCable,
-  selectLameSelection
+  selectlameSelected
 } from '../../features/voletSlice';
 
 
@@ -38,14 +38,14 @@ const getPrice = (options: productDetails[], selectedOption: string): number => 
 
 const TotalCostCalculateur: React.FC = () => {
   const dimensions = useSelector(selectDimensions);
-  const installationType = useSelector(selectInstallationType);
-  const manoeuvreType = useSelector(selectManoeuvre);
-  const manualType = useSelector(selectManual);
-  const motoriseType = useSelector(selectMotorise);
-  const telecommandeType = useSelector(selectTelecommande);
-  const interrupteurType = useSelector(selectInterrupteur);
-  const sortieDeCableType = useSelector(selectSortieDeCable);
-  const lameSelection = useSelector(selectLameSelection);
+  const poseInstalled = useSelector(selectposeInstalled);
+  const manoeuvreSelected = useSelector(selectManoeuvre);
+  const commandeManualSelected = useSelector(selectManual);
+  const optionMotorisationSelected = useSelector(selectMotorise);
+  const optionTelecomandeSelected = useSelector(selectTelecommande);
+  const optionInterrupteurSelected = useSelector(selectInterrupteur);
+  const sortieDeCableSelected = useSelector(selectSortieDeCable);
+  const lameSelected = useSelector(selectlameSelected);
 
   const [costHT, setCostHT] = useState(''); // Cost excluding VAT
   const [costTTC, setCostTTC] = useState(''); // Cost including VAT
@@ -56,16 +56,16 @@ const TotalCostCalculateur: React.FC = () => {
 
   useEffect(() => {
     const calculateCosts = () => {
-      const lameSelectionPrice = getPrice(lameChoices, lameSelection);
-      const installationTypePrice = getPrice(poseOptions, installationType);
-      const manoeuvreTypePrice = getPrice(controlOptions, manoeuvreType);
-      const motoriseTypePrice = getPrice(motoriseOptions, motoriseType);
-      const telecommandePrice = getPrice(telecommandeOptions, telecommandeType);
-      const interrupteurPrice = getPrice(interrupteurOptions, interrupteurType);
-      const sortieDeCablePrice = getPrice(sortieDeCableOptions, sortieDeCableType);
-      const manualTypePrice = getPrice(manualOptions, manualType);
+      const lameSelectedPrice = getPrice(lameChoices, lameSelected);
+      const poseInstalledPrice = getPrice(poseOptions, poseInstalled);
+      const manoeuvreSelectedPrice = getPrice(optionManoeuvre, manoeuvreSelected);
+      const optionMotorisationSelectedPrice = getPrice(optionsMotorisations, optionMotorisationSelected);
+      const telecommandePrice = getPrice(optionsTelecomande, optionTelecomandeSelected);
+      const interrupteurPrice = getPrice(optionsInterrupteur, optionInterrupteurSelected);
+      const sortieDeCablePrice = getPrice(sortieDeCable, sortieDeCableSelected);
+      const commandeManualSelectedPrice = getPrice(optionCommandeManuel, commandeManualSelected);
 
-      const additionalCosts = lameSelectionPrice + installationTypePrice + manoeuvreTypePrice + motoriseTypePrice + telecommandePrice + interrupteurPrice + sortieDeCablePrice + manualTypePrice;
+      const additionalCosts = lameSelectedPrice + poseInstalledPrice + manoeuvreSelectedPrice + optionMotorisationSelectedPrice + telecommandePrice + interrupteurPrice + sortieDeCablePrice + commandeManualSelectedPrice;
 
       const costHT = dimensionCost + additionalCosts;
       const costTTC = costHT * 1.2; // Add 20% VAT to the HT price
@@ -77,7 +77,7 @@ const TotalCostCalculateur: React.FC = () => {
     };
 
     calculateCosts();
-  }, [dimensions, multiplier, manoeuvreType, dimensionCost, installationType, motoriseType, telecommandeType, interrupteurType, sortieDeCableType, lameSelection, manualType]);
+  }, [dimensions, multiplier, manoeuvreSelected, dimensionCost, poseInstalled, optionMotorisationSelected, optionTelecomandeSelected, optionInterrupteurSelected, sortieDeCableSelected, lameSelected, commandeManualSelected]);
 
   const handleIncrement = () => setMultiplier(prev => prev + 1);
   const handleDecrement = () => setMultiplier(prev => Math.max(1, prev - 1));

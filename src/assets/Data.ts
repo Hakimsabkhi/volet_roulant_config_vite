@@ -20,7 +20,7 @@ import {
 
 import { ColorOptions } from "../interfaces";
 
-const motoriseOptions = [
+const optionsMotorisations = [
   {
     label: "Filaire",
     description: "Description for Motorisé 1",
@@ -35,7 +35,7 @@ const motoriseOptions = [
   },
 ];
 
-const interrupteurOptions = [
+const optionsInterrupteur = [
   { label: "Sans", description: "Pas d'interrupteur", image: Sans, price: 0 },
   {
     label: "Encastree",
@@ -51,7 +51,7 @@ const interrupteurOptions = [
   },
 ];
 
-const telecommandeOptions = [
+const optionsTelecomande = [
   { label: "Sans", description: "Sans télécommande", image: Sans, price: 0 },
   {
     label: "Avec",
@@ -61,7 +61,7 @@ const telecommandeOptions = [
   },
 ];
 
-const manualOptions = [
+const optionCommandeManuel = [
   {
     label: "Manivelle",
     description: "Description for Manuel 1",
@@ -76,7 +76,7 @@ const manualOptions = [
   },
 ];
 
-const sortieDeCableOptions = [
+const sortieDeCable = [
   {
     label: "Droite",
     description: "Sortie de câble à droite",
@@ -91,7 +91,7 @@ const sortieDeCableOptions = [
   },
 ];
 
-const controlOptions = [
+const optionManoeuvre = [
   {
     label: "Manuel",
     description: "Fonctionne par une commande manuelle.",
@@ -200,12 +200,12 @@ const ColorImages: ColorOptions = {
 };
 
 export {
-  motoriseOptions,
-  interrupteurOptions,
-  telecommandeOptions,
-  manualOptions,
-  sortieDeCableOptions,
-  controlOptions,
+  optionsMotorisations,
+  optionsInterrupteur,
+  optionsTelecomande,
+  optionCommandeManuel,
+  sortieDeCable,
+  optionManoeuvre,
   poseOptions,
   lameChoices,
   manoeuvreConfig,

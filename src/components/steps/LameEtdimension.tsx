@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLameSelection, setDimensions } from '../../features/voletSlice';
+import { setlameSelected, setDimensions } from '../../features/voletSlice';
 import './LameEtdimension.css';
 import './typeDePose.css';
 import { lameChoices } from '../../assets/Data';
@@ -9,16 +9,16 @@ import { LameEtDimensionProps } from "../../interfaces";
 
 const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, selections, enableNextButton }) => {
   const dispatch = useDispatch();
-  const lameSelection = useSelector((state: RootState) => state.volet.lameSelection);
+  const lameSelected = useSelector((state: RootState) => state.volet.lameSelected);
   const dimensions = useSelector((state: RootState) => state.volet.dimensions);
   const [hoveredChoice, setHoveredChoice] = useState<any>(null);
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    const isEnabled = lameSelection !== '' && dimensions.Largeur >= 600 && dimensions.Hauteur >= 600;
+    const isEnabled = lameSelected !== '' && dimensions.Largeur >= 600 && dimensions.Hauteur >= 600;
     console.log(`Enabling button: ${isEnabled}`);
     enableNextButton(isEnabled);
-  }, [lameSelection, dimensions, enableNextButton]);
+  }, [lameSelected, dimensions, enableNextButton]);
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLLabelElement>, choice: any) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -31,7 +31,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
   };
 
   const handleLameChoice = (lameChoice: any) => {
-    dispatch(setLameSelection(lameChoice.label));
+    dispatch(setlameSelected(lameChoice.label));
 
     const newMaxWidth = lameChoice.label === 'Lame 41' ? 3000 : 3500;
     const newMaxHeight = lameChoice.label === 'Lame 41' ? 2700 : 3000;
@@ -55,7 +55,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
   const handleBlur = (dimensionName: string, value: string) => {
     let newValue = Number(value);
     let min = 600;
-    let max = dimensionName === 'Largeur' ? (lameSelection === 'Lame 41' ? 3000 : 3500) : lameSelection === 'Lame 41' ? 2700 : 3000;
+    let max = dimensionName === 'Largeur' ? (lameSelected === 'Lame 41' ? 3000 : 3500) : lameSelected === 'Lame 41' ? 2700 : 3000;
     newValue = Math.max(Math.min(newValue, max), min);
     dispatch(setDimensions({ ...dimensions, [dimensionName]: newValue }));
   };
@@ -67,7 +67,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
           <label
             key={index}
             onClick={() => handleLameChoice(choice)}
-            className={`choice-btn ${choice.label === lameSelection ? 'selected' : ''}`}
+            className={`choice-btn ${choice.label === lameSelected ? 'selected' : ''}`}
             onMouseEnter={(e) => handleMouseEnter(e, choice)}
             onMouseLeave={() => setHoveredChoice(null)}
           >
@@ -79,7 +79,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
                   type="checkbox"
                   id={`checkbox-${choice.label}`}
                   name={`checkbox-${choice.label}`}
-                  checked={lameSelection === choice.label}
+                  checked={lameSelected === choice.label}
                   onChange={() => handleLameChoice(choice)}
                   className="choice-checkbox"
                   required
@@ -101,7 +101,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
       <div className="dimensionSection">
         <div className="dimension-input-container">
           <h2 className="dimensionStyle">
-            Largeur en mm (min: 600 mm - max: {lameSelection === 'Lame 41' ? 3000 : 3500}):
+            Largeur en mm (min: 600 mm - max: {lameSelected === 'Lame 41' ? 3000 : 3500}):
           </h2>
           <input
             type="number"
@@ -112,12 +112,12 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
             onBlur={(e) => handleBlur('Largeur', e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).select()}
             min="600"
-            max={lameSelection === 'Lame 41' ? 3000 : 3500}
+            max={lameSelected === 'Lame 41' ? 3000 : 3500}
           />
         </div>
         <div className="dimension-input-container">
           <h2 className="dimensionStyle">
-            Hauteur en mm (min: 600 mm - max: {lameSelection === 'Lame 41' ? 2700 : 3000}):
+            Hauteur en mm (min: 600 mm - max: {lameSelected === 'Lame 41' ? 2700 : 3000}):
           </h2>
           <input
             type="number"
@@ -128,7 +128,7 @@ const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, select
             onBlur={(e) => handleBlur('Hauteur', e.target.value)}
             onClick={(e) => (e.target as HTMLInputElement).select()}
             min="600"
-            max={lameSelection === 'Lame 41' ? 2700 : 3000}
+            max={lameSelected === 'Lame 41' ? 2700 : 3000}
           />
         </div>
       </div>

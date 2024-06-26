@@ -163,15 +163,15 @@ export interface Colors {
 
 export interface VoletState {
   selectedColor: Colors;
-  lameSelection: string;
+  lameSelected: string;
   dimensions: Dimensions;
-  installationType: string;
-  ManoeuvreType: string;
-  ManualType: string;
-  MotoriseType: string;
-  TelecommandeType: string;
-  InterrupteurType: string;
-  SortieDeCableType: string;
+  poseInstalled: string;
+  manoeuvreSelected: string;
+  commandeManualSelected: string;
+  optionMotorisationSelected: string;
+  optionTelecomandeSelected: string;
+  optionInterrupteurSelected: string;
+  sortieDeCableSelected: string;
 }
 
 

@@ -1,88 +1,102 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { VoletState , Dimensions , Colors } from "../interfaces";
-
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { VoletState, Dimensions, Colors } from "../interfaces";
 
 const initialState: VoletState = {
-  lameSelection: "",
-  dimensions: { Largeur: 1000, Hauteur: 1000 }, 
+  lameSelected: "",
+  dimensions: { Largeur: 1000, Hauteur: 1000 },
   selectedColor: {
-    coulisse: "", 
-    tablier: "", 
-    lameFinale: "", 
+    coulisse: "",
+    tablier: "",
+    lameFinale: "",
   },
-  installationType: '',
-  ManoeuvreType: "",
-  ManualType: "",
-  MotoriseType: "",
-  TelecommandeType: "",
-  InterrupteurType: "",
-  SortieDeCableType: "",
+  poseInstalled: "",
+  manoeuvreSelected: "",
+  commandeManualSelected: "",
+  optionMotorisationSelected: "",
+  optionTelecomandeSelected: "",
+  optionInterrupteurSelected: "",
+  sortieDeCableSelected: "",
 };
 
 const voletSlice = createSlice({
-  name: 'volet',
+  name: "volet",
   initialState,
   reducers: {
-    setLameSelection: (state, action: PayloadAction<string>) => {
-      state.lameSelection = action.payload;
+    setlameSelected: (state, action: PayloadAction<string>) => {
+      state.lameSelected = action.payload;
     },
     setDimensions: (state, action: PayloadAction<Partial<Dimensions>>) => {
       state.dimensions = { ...state.dimensions, ...action.payload };
     },
-    setColor: (state, action: PayloadAction<{ color: string; category: keyof Colors }>) => {
+    setColor: (
+      state,
+      action: PayloadAction<{ color: string; category: keyof Colors }>
+    ) => {
       const { color, category } = action.payload;
       if (category in state.selectedColor) {
         state.selectedColor[category] = color;
       }
     },
-    setInstallationType: (state, action: PayloadAction<string>) => {
-      state.installationType = action.payload;
+    setposeInstalled: (state, action: PayloadAction<string>) => {
+      state.poseInstalled = action.payload;
     },
-    setManoeuvreType: (state, action: PayloadAction<string>) => {
-      state.ManoeuvreType = action.payload;
+    setmanoeuvreSelected: (state, action: PayloadAction<string>) => {
+      state.manoeuvreSelected = action.payload;
     },
-    setManualType: (state, action: PayloadAction<string>) => {
-      state.ManualType = action.payload;
+    setcommandeManualSelected: (state, action: PayloadAction<string>) => {
+      state.commandeManualSelected = action.payload;
     },
-    setMotoriseType: (state, action: PayloadAction<string>) => {
-      state.MotoriseType = action.payload;
+    setoptionMotorisationSelected: (state, action: PayloadAction<string>) => {
+      state.optionMotorisationSelected = action.payload;
     },
-    setTelecommandeType: (state, action: PayloadAction<string>) => {
-      state.TelecommandeType = action.payload;
+    setoptionTelecomandeSelected: (state, action: PayloadAction<string>) => {
+      state.optionTelecomandeSelected = action.payload;
     },
-    setInterrupteurType: (state, action: PayloadAction<string>) => {
-      state.InterrupteurType = action.payload;
+    setoptionInterrupteurSelected: (state, action: PayloadAction<string>) => {
+      state.optionInterrupteurSelected = action.payload;
     },
-    setSortieDeCableType: (state, action: PayloadAction<string>) => {
-      state.SortieDeCableType = action.payload;
+    setsortieDeCableSelected: (state, action: PayloadAction<string>) => {
+      state.sortieDeCableSelected = action.payload;
     },
   },
 });
 
 export const {
-  setLameSelection,
+  setlameSelected,
   setDimensions,
   setColor,
-  setInstallationType,
-  setManoeuvreType,
-  setManualType,
-  setMotoriseType,
-  setTelecommandeType,
-  setInterrupteurType,
-  setSortieDeCableType
+  setposeInstalled,
+  setmanoeuvreSelected,
+  setcommandeManualSelected,
+  setoptionMotorisationSelected,
+  setoptionTelecomandeSelected,
+  setoptionInterrupteurSelected,
+  setsortieDeCableSelected,
 } = voletSlice.actions;
 
-export const selectLameSelection = (state: { volet: VoletState }) => state.volet.lameSelection;
-export const selectInstallationType = (state: { volet: VoletState }) => state.volet.installationType;
-export const selectSelectedColor = (state: { volet: VoletState }) => state.volet.selectedColor;
-export const selectDimensions = (state: { volet: VoletState }) => state.volet.dimensions;
-export const selectColorForCategory = (category: keyof Colors) => (state: { volet: VoletState }): string => state.volet.selectedColor[category];
-export const selectManoeuvre = (state: { volet: VoletState }) => state.volet.ManoeuvreType;
-export const selectManual = (state: { volet: VoletState }) => state.volet.ManualType;
-export const selectMotorise = (state: { volet: VoletState }) => state.volet.MotoriseType;
-export const selectTelecommande = (state: { volet: VoletState }) => state.volet.TelecommandeType;
-export const selectInterrupteur = (state: { volet: VoletState }) => state.volet.InterrupteurType;
-export const selectSortieDeCable = (state: { volet: VoletState }) => state.volet.SortieDeCableType;
+export const selectlameSelected = (state: { volet: VoletState }) =>
+  state.volet.lameSelected;
+export const selectposeInstalled = (state: { volet: VoletState }) =>
+  state.volet.poseInstalled;
+export const selectSelectedColor = (state: { volet: VoletState }) =>
+  state.volet.selectedColor;
+export const selectDimensions = (state: { volet: VoletState }) =>
+  state.volet.dimensions;
+export const selectColorForCategory =
+  (category: keyof Colors) =>
+  (state: { volet: VoletState }): string =>
+    state.volet.selectedColor[category];
+export const selectManoeuvre = (state: { volet: VoletState }) =>
+  state.volet.manoeuvreSelected;
+export const selectManual = (state: { volet: VoletState }) =>
+  state.volet.commandeManualSelected;
+export const selectMotorise = (state: { volet: VoletState }) =>
+  state.volet.optionMotorisationSelected;
+export const selectTelecommande = (state: { volet: VoletState }) =>
+  state.volet.optionTelecomandeSelected;
+export const selectInterrupteur = (state: { volet: VoletState }) =>
+  state.volet.optionInterrupteurSelected;
+export const selectSortieDeCable = (state: { volet: VoletState }) =>
+  state.volet.sortieDeCableSelected;
 
 export default voletSlice.reducer;

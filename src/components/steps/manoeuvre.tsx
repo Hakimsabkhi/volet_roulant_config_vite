@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { setManoeuvreType, setManualType, setMotoriseType, setTelecommandeType, setInterrupteurType, setSortieDeCableType } from '../../features/voletSlice';
+import { setmanoeuvreSelected, setcommandeManualSelected, setoptionMotorisationSelected, setoptionTelecomandeSelected, setoptionInterrupteurSelected, setsortieDeCableSelected } from '../../features/voletSlice';
 import ManualSelector from './Manoeuvre/ManualSelector';
 import MotoriseSelector from './Manoeuvre/MotoriseSelector';
 import TelecommandeSelector from './Manoeuvre/TelecommandeSelector';
@@ -9,13 +9,13 @@ import InterrupteurSelector from './Manoeuvre/InterrupteurSelector';
 import SortieDeCableSelector from './Manoeuvre/SortieDeCableSelector';
 import OptionSelector from './Manoeuvre/OptionSelector';
 import './manoeuvre.css';
-import { controlOptions, manoeuvreConfig } from '../../assets/Data';
+import { optionManoeuvre, manoeuvreConfig } from '../../assets/Data';
 import useMediaQuery from './useMediaQuery';
 import { ManoeuvreProps } from "../../interfaces";
 
 const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { ManoeuvreType, ManualType, MotoriseType, TelecommandeType, InterrupteurType, SortieDeCableType } = useSelector((state: RootState) => state.volet);
+  const { manoeuvreSelected, commandeManualSelected, optionMotorisationSelected, optionTelecomandeSelected, optionInterrupteurSelected, sortieDeCableSelected } = useSelector((state: RootState) => state.volet);
   const isMobile = useMediaQuery('(max-width: 1050px)');
   const [loading, setLoading] = useState(false);
   const [visibleSection, setVisibleSection] = useState<'Manoeuvre' | 'Manual' | 'Motorise' | 'Telecommande' | 'Interrupteur' | 'SortieDeCable'>('Manoeuvre');
@@ -23,17 +23,17 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
 
   useEffect(() => {
     let isEnabled = false;
-    if (ManoeuvreType === 'Manuel') {
-      isEnabled = ManualType !== '';
-      dispatch(setTelecommandeType(''));
-      dispatch(setInterrupteurType(''));
-      dispatch(setSortieDeCableType(''));
-    } else if (ManoeuvreType === 'Motorisé') {
-      if (MotoriseType) {
-        if (MotoriseType === 'Radio') {
-          isEnabled = TelecommandeType !== '';
-        } else if (MotoriseType === 'Filaire') {
-          isEnabled = InterrupteurType !== '' && SortieDeCableType !== '';
+    if (manoeuvreSelected === 'Manuel') {
+      isEnabled = commandeManualSelected !== '';
+      dispatch(setoptionTelecomandeSelected(''));
+      dispatch(setoptionInterrupteurSelected(''));
+      dispatch(setsortieDeCableSelected(''));
+    } else if (manoeuvreSelected === 'Motorisé') {
+      if (optionMotorisationSelected) {
+        if (optionMotorisationSelected === 'Radio') {
+          isEnabled = optionTelecomandeSelected !== '';
+        } else if (optionMotorisationSelected === 'Filaire') {
+          isEnabled = optionInterrupteurSelected !== '' && sortieDeCableSelected !== '';
         }
       }
     }
@@ -42,10 +42,10 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
     if (
       isMobile &&
       (
-        (ManoeuvreType === 'Manuel' && ManualType !== '') ||
-        (ManoeuvreType === 'Motorisé' && (
-          (MotoriseType === 'Radio' && TelecommandeType !== '') ||
-          (MotoriseType === 'Filaire' && InterrupteurType !== '' && SortieDeCableType !== '')
+        (manoeuvreSelected === 'Manuel' && commandeManualSelected !== '') ||
+        (manoeuvreSelected === 'Motorisé' && (
+          (optionMotorisationSelected === 'Radio' && optionTelecomandeSelected !== '') ||
+          (optionMotorisationSelected === 'Filaire' && optionInterrupteurSelected !== '' && sortieDeCableSelected !== '')
         ))
       )
     ) {
@@ -53,7 +53,7 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
     } else {
       setIsConfigured(false);
     }
-  }, [ManoeuvreType, ManualType, MotoriseType, TelecommandeType, InterrupteurType, SortieDeCableType, enableNextButton, dispatch, isMobile]);
+  }, [manoeuvreSelected, commandeManualSelected, optionMotorisationSelected, optionTelecomandeSelected, optionInterrupteurSelected, sortieDeCableSelected, enableNextButton, dispatch, isMobile]);
 
   const handleChange = (setType: (type: string) => { type: string, payload: string }) => (option: { label: string }) => {
     if (isMobile) {
@@ -61,33 +61,33 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
       setTimeout(() => {
         dispatch(setType(option.label));
         setLoading(false);
-        if (setType === setManoeuvreType) {
+        if (setType === setmanoeuvreSelected) {
           setVisibleSection(option.label === 'Manuel' ? 'Manual' : 'Motorise');
           if (option.label === 'Manuel') {
-            dispatch(setMotoriseType(''));
-            dispatch(setTelecommandeType(''));
-            dispatch(setInterrupteurType(''));
-            dispatch(setSortieDeCableType(''));
+            dispatch(setoptionMotorisationSelected(''));
+            dispatch(setoptionTelecomandeSelected(''));
+            dispatch(setoptionInterrupteurSelected(''));
+            dispatch(setsortieDeCableSelected(''));
           }
-        } else if (setType === setMotoriseType) {
+        } else if (setType === setoptionMotorisationSelected) {
           setVisibleSection(option.label === 'Radio' ? 'Telecommande' : 'Interrupteur');
-        } else if (setType === setInterrupteurType) {
+        } else if (setType === setoptionInterrupteurSelected) {
           setVisibleSection('SortieDeCable');
         }
       }, 1000); // Simulate loading delay
     } else {
       dispatch(setType(option.label));
-      if (setType === setManoeuvreType) {
+      if (setType === setmanoeuvreSelected) {
         setVisibleSection(option.label === 'Manuel' ? 'Manual' : 'Motorise');
         if (option.label === 'Manuel') {
-          dispatch(setMotoriseType(''));
-          dispatch(setTelecommandeType(''));
-          dispatch(setInterrupteurType(''));
-          dispatch(setSortieDeCableType(''));
+          dispatch(setoptionMotorisationSelected(''));
+          dispatch(setoptionTelecomandeSelected(''));
+          dispatch(setoptionInterrupteurSelected(''));
+          dispatch(setsortieDeCableSelected(''));
         }
-      } else if (setType === setMotoriseType) {
+      } else if (setType === setoptionMotorisationSelected) {
         setVisibleSection(option.label === 'Radio' ? 'Telecommande' : 'Interrupteur');
-      } else if (setType === setInterrupteurType) {
+      } else if (setType === setoptionInterrupteurSelected) {
         setVisibleSection('SortieDeCable');
       }
     }
@@ -96,12 +96,12 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
   const handleReconfigure = () => {
     setIsConfigured(false);
     setVisibleSection('Manoeuvre');
-    dispatch(setManoeuvreType(''));
-    dispatch(setManualType(''));
-    dispatch(setMotoriseType(''));
-    dispatch(setTelecommandeType(''));
-    dispatch(setInterrupteurType(''));
-    dispatch(setSortieDeCableType(''));
+    dispatch(setmanoeuvreSelected(''));
+    dispatch(setcommandeManualSelected(''));
+    dispatch(setoptionMotorisationSelected(''));
+    dispatch(setoptionTelecomandeSelected(''));
+    dispatch(setoptionInterrupteurSelected(''));
+    dispatch(setsortieDeCableSelected(''));
   };
 
   return (
@@ -114,47 +114,47 @@ const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
       ) : (
         <>
           {(!isMobile || visibleSection === 'Manoeuvre') && !loading && (
-            <OptionSelector options={controlOptions} selectedOption={ManoeuvreType} handleChange={handleChange(setManoeuvreType)} type="choice" />
+            <OptionSelector options={optionManoeuvre} selectedOption={manoeuvreSelected} handleChange={handleChange(setmanoeuvreSelected)} type="choice" />
           )}
-          {(!isMobile || visibleSection === 'Manual') && ManoeuvreType === 'Manuel' && !loading && (
+          {(!isMobile || visibleSection === 'Manual') && manoeuvreSelected === 'Manuel' && !loading && (
             <div className="ManoeuvreSection">
               <h2 className="text">{manoeuvreConfig[0]}</h2>
               <div className="OptionSection">
-                <ManualSelector selectedOption={ManualType} handleChange={handleChange(setManualType)} />
+                <ManualSelector selectedOption={commandeManualSelected} handleChange={handleChange(setcommandeManualSelected)} />
               </div>
             </div>
           )}
-          {(!isMobile || visibleSection === 'Motorise') && ManoeuvreType === 'Motorisé' && !loading && (
+          {(!isMobile || visibleSection === 'Motorise') && manoeuvreSelected === 'Motorisé' && !loading && (
             <div className="ManoeuvreSectionG">
               <div className="ManoeuvreSection">
                 <div><h2 className="text">{manoeuvreConfig[1]}</h2></div>
                 <div className="OptionSection">
-                  <MotoriseSelector selectedOption={MotoriseType} handleChange={handleChange(setMotoriseType)} />
+                  <MotoriseSelector selectedOption={optionMotorisationSelected} handleChange={handleChange(setoptionMotorisationSelected)} />
                 </div>
               </div>
             </div>
           )}
-          {(!isMobile || visibleSection === 'Telecommande') && MotoriseType === 'Radio' && !loading && (
+          {(!isMobile || visibleSection === 'Telecommande') && optionMotorisationSelected === 'Radio' && !loading && (
             <div className="ManoeuvreSection">
               <div><h2 className="text">{manoeuvreConfig[2]}</h2></div>
               <div className="OptionSection">
-                <TelecommandeSelector selectedOption={TelecommandeType} handleChange={handleChange(setTelecommandeType)} />
+                <TelecommandeSelector selectedOption={optionTelecomandeSelected} handleChange={handleChange(setoptionTelecomandeSelected)} />
               </div>
             </div>
           )}
-          {(!isMobile || visibleSection === 'Interrupteur') && MotoriseType === 'Filaire' && !loading && (
+          {(!isMobile || visibleSection === 'Interrupteur') && optionMotorisationSelected === 'Filaire' && !loading && (
             <div className="ManoeuvreSection">
               <h2 className="text">{manoeuvreConfig[3]}</h2>
               <div className="OptionSection">
-                <InterrupteurSelector selectedOption={InterrupteurType} handleChange={handleChange(setInterrupteurType)} />
+                <InterrupteurSelector selectedOption={optionInterrupteurSelected} handleChange={handleChange(setoptionInterrupteurSelected)} />
               </div>
             </div>
           )}
-          {(!isMobile || visibleSection === 'SortieDeCable') && MotoriseType === 'Filaire' && !loading && (
+          {(!isMobile || visibleSection === 'SortieDeCable') && optionMotorisationSelected === 'Filaire' && !loading && (
             <div className="ManoeuvreSection">
               <h2 className="text">{manoeuvreConfig[4]}</h2>
               <div className="OptionSection">
-                <SortieDeCableSelector selectedOption={SortieDeCableType} handleChange={handleChange(setSortieDeCableType)} />
+                <SortieDeCableSelector selectedOption={sortieDeCableSelected} handleChange={handleChange(setsortieDeCableSelected)} />
               </div>
             </div>
           )}
