@@ -1,44 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { VoletState , Dimensions , Colors } from "../interfaces";
 
-interface Dimensions {
-  Largeur: number;
-  Hauteur: number;
-}
 
-export interface SelectedColor {
-  coulisse: string;
-  tablier: string;
-  lameFinale: string;
-}
-
-interface VoletState {
-  lameSelection: string;
-  dimensions: Dimensions;
-  selectedColor: SelectedColor;
-  installationType: string;
-  ManoeuvreType: string;
-  ManualType: string;
-  MotoriseType: string;
-  TelecommandeType: string;
-  CommandeType: string;
-  InterrupteurType: string;
-  SortieDeCableType: string;
-}
 
 const initialState: VoletState = {
-  lameSelection: "", // Initial selection for lames
-  dimensions: { Largeur: 1000, Hauteur: 1000 }, // Default dimensions
+  lameSelection: "",
+  dimensions: { Largeur: 1000, Hauteur: 1000 }, 
   selectedColor: {
-    coulisse: "", // Initialize with default or empty string if no initial color
-    tablier: "", // Initialize with default or empty string if no initial color
-    lameFinale: "", // Initialize with default or empty string if no initial color
+    coulisse: "", 
+    tablier: "", 
+    lameFinale: "", 
   },
   installationType: '',
   ManoeuvreType: "",
   ManualType: "",
   MotoriseType: "",
   TelecommandeType: "",
-  CommandeType: "",
   InterrupteurType: "",
   SortieDeCableType: "",
 };
@@ -53,7 +30,7 @@ const voletSlice = createSlice({
     setDimensions: (state, action: PayloadAction<Partial<Dimensions>>) => {
       state.dimensions = { ...state.dimensions, ...action.payload };
     },
-    setColor: (state, action: PayloadAction<{ color: string; category: keyof SelectedColor }>) => {
+    setColor: (state, action: PayloadAction<{ color: string; category: keyof Colors }>) => {
       const { color, category } = action.payload;
       if (category in state.selectedColor) {
         state.selectedColor[category] = color;
@@ -74,9 +51,6 @@ const voletSlice = createSlice({
     setTelecommandeType: (state, action: PayloadAction<string>) => {
       state.TelecommandeType = action.payload;
     },
-    setCommandeType: (state, action: PayloadAction<string>) => {
-      state.CommandeType = action.payload;
-    },
     setInterrupteurType: (state, action: PayloadAction<string>) => {
       state.InterrupteurType = action.payload;
     },
@@ -95,7 +69,6 @@ export const {
   setManualType,
   setMotoriseType,
   setTelecommandeType,
-  setCommandeType,
   setInterrupteurType,
   setSortieDeCableType
 } = voletSlice.actions;
@@ -104,12 +77,11 @@ export const selectLameSelection = (state: { volet: VoletState }) => state.volet
 export const selectInstallationType = (state: { volet: VoletState }) => state.volet.installationType;
 export const selectSelectedColor = (state: { volet: VoletState }) => state.volet.selectedColor;
 export const selectDimensions = (state: { volet: VoletState }) => state.volet.dimensions;
-export const selectColorForCategory = (category: keyof SelectedColor) => (state: { volet: VoletState }): string => state.volet.selectedColor[category];
+export const selectColorForCategory = (category: keyof Colors) => (state: { volet: VoletState }): string => state.volet.selectedColor[category];
 export const selectManoeuvre = (state: { volet: VoletState }) => state.volet.ManoeuvreType;
 export const selectManual = (state: { volet: VoletState }) => state.volet.ManualType;
 export const selectMotorise = (state: { volet: VoletState }) => state.volet.MotoriseType;
 export const selectTelecommande = (state: { volet: VoletState }) => state.volet.TelecommandeType;
-export const selectCommande = (state: { volet: VoletState }) => state.volet.CommandeType;
 export const selectInterrupteur = (state: { volet: VoletState }) => state.volet.InterrupteurType;
 export const selectSortieDeCable = (state: { volet: VoletState }) => state.volet.SortieDeCableType;
 

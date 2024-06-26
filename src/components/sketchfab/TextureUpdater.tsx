@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectColorForCategory, SelectedColor } from '../../features/voletSlice';
+import { selectColorForCategory} from '../../features/voletSlice';
 import { ColorImages } from '../../assets/Data';
 import { RootState } from '../../store';
 import TextureUpdateHandler from './TextureUpdateHandler'; // Adjust the import path as needed

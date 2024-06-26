@@ -174,6 +174,7 @@ export interface VoletState {
   SortieDeCableType: string;
 }
 
+
 export interface RootState {
   volet: VoletState;
 }
@@ -248,4 +249,13 @@ export interface TextureUpdaterProps {
   textureType: keyof SelectedColor;
   textureId: string;
   setTexture: React.Dispatch<React.SetStateAction<string>>;
+}
+
+
+// voletSlice
+
+export interface Color {
+  coulisse: string;
+  tablier: string;
+  lameFinale: string;
 }
