@@ -2,12 +2,9 @@ import React, { useState, useEffect, MouseEvent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setInstallationType, selectInstallationType } from '../../features/voletSlice';
 import "./typeDePose.css";
-
 import { poseOptions } from '../../assets/Data';
+import { TypeDePoseProps } from "../../interfaces";
 
-type TypeDePoseProps = {
-  enableNextButton: (isEnabled: boolean) => void;
-};
 
 function TypeDePose({ enableNextButton }: TypeDePoseProps) {
   const dispatch = useDispatch();

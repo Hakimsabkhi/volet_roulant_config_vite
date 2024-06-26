@@ -8,21 +8,7 @@ import MultiStepInfoDisplay from "./MultiStepInfoDisplay";
 import TotalCostCalculateur from "./calculator/TotalCostCalculator";
 import Information from "./formulaire/info";
 import WarningPopup from "./WarningPopup";
-
-interface MultiStepMenuProps {
-  onSelectionsChange: (selections: any) => void;
-}
-
-interface Selections {
-  step1: Record<string, any>;
-  step2: Record<string, any>;
-  step3: Record<string, any>;
-  step4: Record<string, any>;
-}
-
-interface EnabledSteps {
-  [key: number]: boolean;
-}
+import { MultiStepMenuProps, Selections, EnabledSteps } from "../interfaces"; // Import interfaces
 
 const MultiStepMenu: React.FC<MultiStepMenuProps> = ({
   onSelectionsChange,

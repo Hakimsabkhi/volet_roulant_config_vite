@@ -1,13 +1,6 @@
 import React from 'react';
 import '../styles.css';
-
-interface StepNavigatorProps {
-  currentStep: number;
-  setCurrentStep: (step: number) => void;
-  totalSteps: number;
-  titles: { [key: number]: string };
-  enabledSteps: { [key: number]: boolean };
-}
+import { StepNavigatorProps} from "../interfaces"
 
 const StepNavigator: React.FC<StepNavigatorProps> = ({ currentStep, setCurrentStep, totalSteps, titles, enabledSteps }) => {
   return (

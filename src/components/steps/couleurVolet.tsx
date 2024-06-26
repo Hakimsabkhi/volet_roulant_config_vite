@@ -3,22 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setColor } from '../../features/voletSlice';
 import './couleurVolet.css';
 import { ColorImages } from '../../assets/Data';
-import { RootState } from '../../store'; // Assuming you have a RootState type defined in your store file
-import useMediaQuery from './useMediaQuery'; // Adjust the path as necessary
-
-interface SelectedColor {
-  coulisse: string;
-  tablier: string;
-  lameFinale: string;
-}
-
-interface CouleurVoletProps {
-  enableNextButton: (isEnabled: boolean) => void;
-  setIsMobileConfigured: (isConfigured: boolean) => void; // Add this line
-}
+import { RootState } from '../../store'; 
+import useMediaQuery from './useMediaQuery';
+import { SelectedColor, CouleurVoletProps } from "../../interfaces";
 
 const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton, setIsMobileConfigured }) => {
-  const dispatch = useDispatch(); // Make sure useDispatch is correctly imported and used
+  const dispatch = useDispatch(); 
   const selectedColors: SelectedColor = useSelector((state: RootState) => state.volet.selectedColor);
   const isMobile = useMediaQuery('(max-width: 1050px)');
   const [loading, setLoading] = useState(false);
@@ -33,10 +23,10 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton, setIsMobi
 
     if (isMobile && allSelected) {
       setIsConfigured(true);
-      setIsMobileConfigured(true); // Add this line
+      setIsMobileConfigured(true); 
     } else {
       setIsConfigured(false);
-      setIsMobileConfigured(false); // Add this line
+      setIsMobileConfigured(false); 
     }
   }, [selectedColors, enableNextButton, isMobile, setIsMobileConfigured]);
 
@@ -60,7 +50,7 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton, setIsMobi
 
   const handleReconfigure = () => {
     setIsConfigured(false);
-    setIsMobileConfigured(false); // Add this line
+    setIsMobileConfigured(false); 
     setVisibleSection('coulisse');
     // Optionally reset selected colors
     dispatch(setColor({ color: '', category: 'coulisse' }));
@@ -83,7 +73,7 @@ const CouleurVolet: React.FC<CouleurVoletProps> = ({ enableNextButton, setIsMobi
           name={`color-${category}`}
           value={colorName}
           checked={colorName === selectedColors[category]}
-          onChange={() => {}} // No action needed on change as the click handler takes care of it
+          onChange={() => {}} 
           aria-labelledby={`label-${colorName}-${category}`}
           className="ColorInput"
           required

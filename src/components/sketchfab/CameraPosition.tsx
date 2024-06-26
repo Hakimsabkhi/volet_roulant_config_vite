@@ -1,11 +1,5 @@
 import React from 'react';
-
-interface CameraPositionProps {
-  position: { x: number; y: number; z: number };
-  setPosition: (position: { x: number; y: number; z: number }) => void;
-  target: { x: number; y: number; z: number };
-  setTarget: (target: { x: number; y: number; z: number }) => void;
-}
+import { CameraPositionProps } from "../../interfaces";
 
 const CameraPosition: React.FC<CameraPositionProps> = ({ position, setPosition, target, setTarget }) => {
   return (

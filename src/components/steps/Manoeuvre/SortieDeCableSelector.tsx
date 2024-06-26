@@ -1,11 +1,7 @@
 import React from 'react';
-import OptionSelector, { Option } from './OptionSelector';
+import OptionSelector from './OptionSelector';
 import { sortieDeCableOptions } from '../../../assets/Data';
-
-interface SortieDeCableSelectorProps {
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-}
+import { SortieDeCableSelectorProps } from "../../../interfaces";
 
 const SortieDeCableSelector: React.FC<SortieDeCableSelectorProps> = ({ selectedOption, handleChange }) => {
   return (

@@ -4,13 +4,7 @@ import { selectColorForCategory, SelectedColor } from '../../features/voletSlice
 import { ColorImages } from '../../assets/Data';
 import { RootState } from '../../store';
 import TextureUpdateHandler from './TextureUpdateHandler'; // Adjust the import path as needed
-
-interface TextureUpdaterProps {
-  apiClient: any;
-  textureType: keyof SelectedColor;
-  textureId: string;
-  setTexture: React.Dispatch<React.SetStateAction<string>>;
-}
+import { TextureUpdaterProps } from "../../interfaces";
 
 const TextureUpdater: React.FC<TextureUpdaterProps> = ({ apiClient, textureType, textureId, setTexture }) => {
   const color = useSelector((state: RootState) => selectColorForCategory(textureType)(state)) || 'Blanc';

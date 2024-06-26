@@ -1,20 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import "./info.css";
 import exitIcon from '../../assets/exit.png';
+import { InformationProps, FormData } from "../../interfaces";
 
-interface InformationProps {
-  onClose: () => void;
-}
-
-interface FormData {
-  deliveryOption: string;
-  fullNameOrCompany: string;
-  email: string;
-  phoneNumber: string;
-  postalCode: string;
-  city: string;
-  deliveryAddress: string;
-}
 
 const Information: React.FC<InformationProps> = ({ onClose }) => {
   const [formData, setFormData] = useState<FormData>({

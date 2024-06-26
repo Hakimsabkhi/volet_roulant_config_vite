@@ -1,11 +1,7 @@
 import React from 'react';
 import './WarningPopup.css'; // Make sure to create and import the CSS file for styling
 import exitIcon from '../assets/exit.png';
-
-interface WarningPopupProps {
-  message: string;
-  onClose: () => void;
-}
+import { WarningPopupProps } from "../interfaces"
 
 const WarningPopup: React.FC<WarningPopupProps> = ({ message, onClose }) => {
   return (

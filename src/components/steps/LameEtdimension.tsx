@@ -5,12 +5,7 @@ import './LameEtdimension.css';
 import './typeDePose.css';
 import { lameChoices } from '../../assets/Data';
 import { RootState } from '../../store';
-
-interface LameEtDimensionProps {
-  setSelections: React.Dispatch<React.SetStateAction<any>>;
-  selections: any;
-  enableNextButton: (isEnabled: boolean) => void;
-}
+import { LameEtDimensionProps } from "../../interfaces";
 
 const LameEtDimension: React.FC<LameEtDimensionProps> = ({ setSelections, selections, enableNextButton }) => {
   const dispatch = useDispatch();

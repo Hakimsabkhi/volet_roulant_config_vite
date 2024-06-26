@@ -1,11 +1,7 @@
 import React from 'react';
-import OptionSelector, { Option } from './OptionSelector';
+import OptionSelector from './OptionSelector';
 import { telecommandeOptions } from '../../../assets/Data';
-
-interface TelecommandeSelectorProps {
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-}
+import { TelecommandeSelectorProps } from "../../../interfaces";
 
 const TelecommandeSelector: React.FC<TelecommandeSelectorProps> = ({ selectedOption, handleChange }) => {
   return (

@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import './TotalCostCalculator.css';
 import Information from '../formulaire/info';
 import DimensionCostCalculator from './dimensionCostCalculator';
+import { productDetails } from "../../interfaces";
+
 import {
   motoriseOptions,
   interrupteurOptions,
@@ -18,26 +20,18 @@ import {
 import {
   selectDimensions,
   selectInstallationType,
-  selectSelectedColor,
   selectManoeuvre,
   selectManual,
   selectMotorise,
   selectTelecommande,
-  selectCommande,
   selectInterrupteur,
   selectSortieDeCable,
   selectLameSelection
 } from '../../features/voletSlice';
 
-interface Option {
-  label: string;
-  description: string;
-  image: string;
-  price: number;
-}
 
 // Helper function to get the price of a selected option
-const getPrice = (options: Option[], selectedOption: string): number => {
+const getPrice = (options: productDetails[], selectedOption: string): number => {
   const option = options.find(option => option.label === selectedOption);
   return option ? option.price : 0;
 };
@@ -45,12 +39,10 @@ const getPrice = (options: Option[], selectedOption: string): number => {
 const TotalCostCalculateur: React.FC = () => {
   const dimensions = useSelector(selectDimensions);
   const installationType = useSelector(selectInstallationType);
-  const selectedColor = useSelector(selectSelectedColor);
   const manoeuvreType = useSelector(selectManoeuvre);
   const manualType = useSelector(selectManual);
   const motoriseType = useSelector(selectMotorise);
   const telecommandeType = useSelector(selectTelecommande);
-  const commandeType = useSelector(selectCommande);
   const interrupteurType = useSelector(selectInterrupteur);
   const sortieDeCableType = useSelector(selectSortieDeCable);
   const lameSelection = useSelector(selectLameSelection);

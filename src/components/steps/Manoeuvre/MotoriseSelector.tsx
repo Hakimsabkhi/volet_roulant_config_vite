@@ -1,11 +1,7 @@
 import React from 'react';
-import OptionSelector, { Option } from './OptionSelector';
+import OptionSelector from './OptionSelector';
 import { motoriseOptions } from '../../../assets/Data'; 
-
-interface MotoriseSelectorProps {
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-}
+import { MotoriseSelectorProps } from "../../../interfaces";
 
 const MotoriseSelector: React.FC<MotoriseSelectorProps> = ({ selectedOption, handleChange }) => {
   return (

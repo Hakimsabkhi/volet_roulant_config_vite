@@ -11,10 +11,7 @@ import OptionSelector from './Manoeuvre/OptionSelector';
 import './manoeuvre.css';
 import { controlOptions, manoeuvreConfig } from '../../assets/Data';
 import useMediaQuery from './useMediaQuery';
-
-interface ManoeuvreProps {
-  enableNextButton: (isEnabled: boolean) => void;
-}
+import { ManoeuvreProps } from "../../interfaces";
 
 const Manoeuvre: React.FC<ManoeuvreProps> = ({ enableNextButton }) => {
   const dispatch = useDispatch<AppDispatch>();

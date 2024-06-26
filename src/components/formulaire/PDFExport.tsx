@@ -15,33 +15,7 @@ import {
   lameChoices,
 } from "../../assets/Data";
 
-interface Dimensions {
-  Largeur: number;
-  Hauteur: number;
-}
-
-interface Colors {
-  coulisse: string;
-  tablier: string;
-  lameFinale: string;
-}
-
-interface VoletState {
-  selectedColor: Colors;
-  lameSelection: string;
-  dimensions: Dimensions;
-  installationType: string;
-  ManoeuvreType: string;
-  ManualType: string;
-  MotoriseType: string;
-  TelecommandeType: string;
-  InterrupteurType: string;
-  SortieDeCableType: string;
-}
-
-interface RootState {
-  volet: VoletState;
-}
+import { RootState  } from "../../interfaces";
 
 const getPrice = (options: any[], selectedOption: string) => {
   const option = options.find((option) => option.label === selectedOption);

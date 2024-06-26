@@ -1,11 +1,7 @@
 import React from 'react';
-import OptionSelector, { Option } from './OptionSelector';
+import OptionSelector from './OptionSelector';
 import { interrupteurOptions } from '../../../assets/Data';
-
-interface InterrupteurSelectorProps {
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-}
+import { InterrupteurSelectorProps } from "../../../interfaces";
 
 const InterrupteurSelector: React.FC<InterrupteurSelectorProps> = ({ selectedOption, handleChange }) => {
   return (

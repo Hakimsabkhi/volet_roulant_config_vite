@@ -2,11 +2,7 @@
 import React from 'react';
 import logo from '../../assets/logo.svg';
 import './LoadingOverlay.css';
-
-interface LoadingOverlayProps {
-  isBlurred: boolean;
-  progress: number;
-}
+import { LoadingOverlayProps } from "../../interfaces";
 
 const LoadingOverlay: React.FC<LoadingOverlayProps> = ({ isBlurred, progress }) => {
   return isBlurred ? (

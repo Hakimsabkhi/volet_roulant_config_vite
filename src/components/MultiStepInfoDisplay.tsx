@@ -12,36 +12,10 @@ import {
   poseOptions,
   lameChoices,
 } from "../assets/Data";
+
+import { RootState } from '../store';
+
 import PDFExport from "./formulaire/PDFExport"; // Import the new component
-
-// Define types for your state
-interface Dimensions {
-  Largeur: number;
-  Hauteur: number;
-}
-
-interface Colors {
-  coulisse: string;
-  tablier: string;
-  lameFinale: string;
-}
-
-interface VoletState {
-  selectedColor: Colors;
-  lameSelection: string;
-  dimensions: Dimensions;
-  installationType: string;
-  ManoeuvreType: string;
-  ManualType: string;
-  MotoriseType: string;
-  TelecommandeType: string;
-  InterrupteurType: string;
-  SortieDeCableType: string;
-}
-
-interface RootState {
-  volet: VoletState;
-}
 
 // Helper function to get the price of a selected option
 const getPrice = (options: any[], selectedOption: string) => {

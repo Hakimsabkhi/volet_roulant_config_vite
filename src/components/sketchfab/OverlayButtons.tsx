@@ -9,11 +9,7 @@ import {
   disableRotation,
 } from "../../assets/imageModule";
 
-interface OverlayButtonsProps {
-  handleViewChange: (position: [number, number, number], target: [number, number, number], duration?: number, callback?: (err: any) => void) => void;
-  toggleUserInteraction: () => void;
-  userInteractionEnabled: boolean;
-}
+import { OverlayButtonsProps } from "../../interfaces";
 
 const OverlayButtons: React.FC<OverlayButtonsProps> = ({ handleViewChange, toggleUserInteraction, userInteractionEnabled }) => {
   const [rotating, setRotating] = useState(false);

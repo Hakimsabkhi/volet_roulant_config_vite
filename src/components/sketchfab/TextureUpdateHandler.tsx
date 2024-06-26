@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react';
-
-interface TextureUpdateHandlerProps {
-  apiClient: any;
-  textureURL: string;
-  textureId: string;
-  setTexture: React.Dispatch<React.SetStateAction<string>>;
-}
+import { TextureUpdateHandlerProps } from "../../interfaces";
 
 const TextureUpdateHandler: React.FC<TextureUpdateHandlerProps> = ({ apiClient, textureURL, textureId, setTexture }) => {
   useEffect(() => {

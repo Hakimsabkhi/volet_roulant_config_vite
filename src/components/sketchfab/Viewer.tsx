@@ -5,17 +5,7 @@ import OverlayButtons from './OverlayButtons';
 import TextureUpdater from './TextureUpdater';
 import APIDataFetcher from './APIDataFetcher';
 import './Viewer.css';
-
-interface ViewerProps {
-  setPosition: (position: { x: number; y: number; z: number }) => void;
-  setTarget: (target: { x: number; y: number; z: number }) => void;
-}
-
-declare global {
-  interface Window {
-    Sketchfab: any;
-  }
-}
+import { ViewerProps } from "../../interfaces";
 
 const Viewer: React.FC<ViewerProps> = ({ setPosition, setTarget }) => {
   const [apiClient, setApiClient] = useState<any | null>(null);

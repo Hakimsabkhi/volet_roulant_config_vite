@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-
-interface APIDataFetcherProps {
-  apiClient: any;
-}
+import { APIDataFetcherProps  } from "../../interfaces";
 
 const APIDataFetcher: React.FC<APIDataFetcherProps> = ({ apiClient }) => {
   useEffect(() => {

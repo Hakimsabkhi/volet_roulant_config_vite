@@ -1,18 +1,8 @@
 import React, { useState, useRef } from "react";
 import "../manoeuvre.css";
+import { Option, OptionSelectorProps } from "../../../interfaces";
 
-export interface Option {
-  label: string;
-  image?: string;
-  description?: string;
-}
 
-interface OptionSelectorProps {
-  options: Option[];
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-  type: string;
-}
 
 const OptionSelector: React.FC<OptionSelectorProps> = ({
   options,

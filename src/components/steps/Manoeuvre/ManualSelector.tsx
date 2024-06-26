@@ -1,11 +1,8 @@
 import React from 'react';
-import OptionSelector, { Option } from './OptionSelector';
+import OptionSelector from './OptionSelector';
 import { manualOptions } from '../../../assets/Data';
+import { ManualSelectorProps } from "../../../interfaces";
 
-interface ManualSelectorProps {
-  selectedOption: string;
-  handleChange: (option: Option) => void;
-}
 
 const ManualSelector: React.FC<ManualSelectorProps> = ({ selectedOption, handleChange }) => {
   return (
