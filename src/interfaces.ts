@@ -259,3 +259,17 @@ export interface Color {
   tablier: string;
   lameFinale: string;
 }
+
+
+// Data
+
+export interface ColorOptions {
+  [key: string]: {
+    Blanc: string;
+    "Gris-clair": string;
+    "Gris-métallique": string;
+    "Gris-anthracite": string;
+    Marron: string;
+    "Chêne-doré": string;
+  };
+}

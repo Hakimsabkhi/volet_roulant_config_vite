@@ -18,6 +18,8 @@ import {
   Sans
 } from "./imageModule";
 
+import { ColorOptions } from "../interfaces";
+
 const motoriseOptions = [
   {
     label: "Filaire",
@@ -151,16 +153,6 @@ const manoeuvreConfig = [
   "Sortie de câble",
 ];
 
-interface ColorOptions {
-  [key: string]: {
-    Blanc: string;
-    "Gris-clair": string;
-    "Gris-métallique": string;
-    "Gris-anthracite": string;
-    Marron: string;
-    "Chêne-doré": string;
-  };
-}
 
 const ColorImages: ColorOptions = {
   coulisse: {
