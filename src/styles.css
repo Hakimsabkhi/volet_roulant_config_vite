@@ -393,6 +393,7 @@ body {
 }
 
 .MainStyle {
+  width: 100%;
   height: 100%;
 }
 
@@ -436,84 +437,86 @@ body {
   gap: 5%;
 }
 
+canvas {
+  width: 100%;
+  height: 100%;
+}
 
 @media (max-width: 812px) and (max-height: 1024px) {
+  h1 {
+    font-size: 12px;
+  }
+  .steps-menu {
+    position: fixed;
+    top: 21%;
+    left: 50%;
+    width: 93%;
+    transform: translate(-50%, -50%);
+  }
 
-    h1 {
-      font-size: 12px;
-    }
-    .steps-menu {
-      position: fixed;
-      top: 23%;
-      left: 50%;
-      width: 93%;
-      padding: 5px;
-      transform: translate(-50%, -50%);
-    }
+  .boxConfig {
+    top: 8%;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+  }
 
-    .boxConfig {
-      top: 10%;
-      left: 0;
-      width: 100%;
-      position: relative;
-      justify-content: center;
-    }
+  .MainStyle {
+    flex-direction: column-reverse;
+    height: fit-content;
+  }
 
-    .MainStyle {
-      flex-direction: column-reverse;
-      height: 98%;
-    }
+  .MenuGroupe {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+  }
 
-    .MenuGroupe {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-      height: 100%;
-      justify-content: flex-end;
-    }
+  .Lameetdimension {
+    flex-direction: column;
+  }
 
-    .Lameetdimension {
-      flex-direction: column;
-    }
-  
-    .NavBtnContainer {
-      padding-top: 10px;
-    }
-  
-    h2 {
-      font-size: 10px;
-    }
-  
-    .choice-label {
-      font-size: 10px;
-    }
+  .NavBtnContainer {
+    padding-top: 10px;
+  }
 
-    h3 {
-      font-size: 16px;
-    }
+  h2 {
+    font-size: 10px;
+  }
 
-    .Menu-button {
-      width: 50px;
-      height: 50px;
-    }
-  
-    .StepStyleManoeuvre {
-      gap: 0px;
-    }
+  .choice-label {
+    font-size: 10px;
+  }
 
-    .step-button {
-      font-size: 8px;
-    }
+  h3 {
+    font-size: 16px;
+  }
 
-    .absolute-div {
-      position: absolute;
-      width: 93%;
-      top: unset;
-      left: 3%;
-      z-index: 1000;
-      bottom: 4%;
-      height: fit-content;
-      bottom: 1%;
-    }
-  } 
+  .Menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .StepStyleManoeuvre {
+    gap: 0px;
+  }
+
+  .step-button {
+    font-size: 8px;
+  }
+
+  .absolute-div {
+    position: absolute;
+    width: 93%;
+    top: unset;
+    left: 3%;
+    z-index: 1000;
+    bottom: 4%;
+    height: fit-content;
+    bottom: 1%;
+  }
+}

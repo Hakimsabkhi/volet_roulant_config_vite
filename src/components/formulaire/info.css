@@ -34,8 +34,8 @@
   gap: 10px;
 }
 
-.button-close{
-width: 30px;
+.button-close {
+  width: 30px;
 }
 
 .close-button {
@@ -50,8 +50,8 @@ width: 30px;
 
 .thirdSection {
   display: flex;
-width: 90%;
-gap: 10px;
+  width: 90%;
+  gap: 10px;
 }
 
 .Optiondelivraison {
@@ -80,9 +80,9 @@ label {
   margin-bottom: 10px;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='tel'] {
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -101,9 +101,14 @@ input:invalid {
   margin: auto;
 }
 
-@media (max-width: 812px) and (max-height: 1024px) { 
-  
+@media (max-width: 812px) and (max-height: 1024px) {
   .PrixUnitaire {
-    display: none;}
+    display: none;
+  }
 
+  .formeBox {
+  
+    width: 90%;
+
+  }
 }
