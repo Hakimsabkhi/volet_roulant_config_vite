@@ -107,35 +107,3 @@ input:invalid {
     display: none;}
 
 }
-
-
-@media (max-width: 1350px) {
-  .formeBox {
-    width: 90%;
-    top: 50%;
-    font-size: 10px;
-  }
-
-  input[type='text'],
-input[type='email'],
-input[type='tel'] {
-
-  padding: 5px;
-
-}
-.label-class{
-  margin-top: 5px;
-}
-
-.PrixUnitaire{
-  display: flex;
-        flex-direction: column;
-        justify-content: center;
-}
-.PrixUnitaire {
-  display: none;
-}
-label {
-  font-size: 10px;
-}
-}
