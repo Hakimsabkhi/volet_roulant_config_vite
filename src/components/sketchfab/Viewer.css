@@ -81,7 +81,7 @@
   height: 60px;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 812px) and (max-height: 1024px) {
   .InteractionButton {
     width: 40px;
     height: 40px;
@@ -96,6 +96,10 @@
     justify-content: center;
     height: 50px;
     width: 100%;
+  }
+  .toggle-button {
+    width: 45px;
+    height: 45px;
   }
 }
 
@@ -123,13 +127,5 @@
   
 .button-icon {
   width: 35px;
-}
-}
-
-
-@media (max-width: 1050px)  {
-  .toggle-button {
-  width: 45px;
-  height: 45px;
 }
 }

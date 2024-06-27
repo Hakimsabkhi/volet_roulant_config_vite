@@ -101,7 +101,7 @@ input:invalid {
   margin: auto;
 }
 
-@media (max-width: 1550px) { 
+@media (max-width: 812px) and (max-height: 1024px) { 
   
   .PrixUnitaire {
     display: none;}
