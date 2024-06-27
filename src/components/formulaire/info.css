@@ -17,7 +17,7 @@
 
 .formeBox {
   position: fixed;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -111,4 +111,14 @@ input:invalid {
     width: 90%;
 
   }
+  .thirdSection {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+  }
+  .secondSection {
+    width: 100%;
+  }
+  
 }
