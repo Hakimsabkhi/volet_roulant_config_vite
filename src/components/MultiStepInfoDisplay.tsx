@@ -155,7 +155,7 @@ const MultiStepInfoDisplay: React.FC = () => {
       </table>
       <table
         style={{
-          width: "205px",
+          width: "70%",
           textAlign: "right",
           marginLeft: "auto",
           marginRight: "0",

@@ -25,7 +25,7 @@ gap: 10px;
   color: black;
 }
 
-@media (max-width: 812px) and (max-height: 1024px) {
+@media (max-width: 992px) and (max-height: 1366px) {
   .info-display td, .info-display th {
     padding: 3px;
     font-size: 10px; 
