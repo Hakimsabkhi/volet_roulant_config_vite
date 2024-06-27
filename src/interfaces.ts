@@ -251,7 +251,6 @@ export interface TextureUpdaterProps {
   setTexture: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
 // voletSlice
 
 export interface Color {

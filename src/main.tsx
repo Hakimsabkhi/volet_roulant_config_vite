@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store'; 
 import LoadingScreen from './LoadingScreen';
 import './styles.css';
-
-
 import App from './App';
 
 const Root: React.FC = () => {
@@ -22,7 +20,7 @@ const Root: React.FC = () => {
 
   return (
     <Provider store={store}>
-        {loading ? <LoadingScreen /> : <App />}
+      {loading ? <LoadingScreen /> : <App />}
     </Provider>
   );
 };

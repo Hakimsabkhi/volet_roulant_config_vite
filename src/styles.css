@@ -436,188 +436,82 @@ body {
   gap: 20px;
 }
 
-@media (max-width: 1550px) {
-  h1 {
-    font-size: 12px;
-  }
 
-  h2 {
-    font-size: 12px;
-  }
+  @media (max-width: 1050px) {
 
-  h3 {
-    display: block;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    font-size: 26px;
-  }
+    h1 {
+      font-size: 12px;
+    }
+    .steps-menu {
+      position: fixed;
+      top: 22%;
+      left: 50%;
+      width: 93%;
+      padding: 5px;
+      transform: translate(-50%, -50%);
+    }
 
-  .multi-step-menu button.nav-btn {
-    font-size: 12px;
-  }
-
-  .steps-menu {
-    position: fixed;
-    top: 22%;
-    left: 50%;
-    width: 93%;
-    padding: 5px;
-    transform: translate(-50%, -50%);
-  }
-
-  .multi-step-menu {
-    height: 100%;
-    padding: 5px;
-  }
-
-  .NavBtnContainer {
-    padding-bottom: 2%;
-  }
-  .Menu-button {
-    width: 30px;
-    height: 30px;
-  }
-  .boxConfig {
-    top: 10%;
-    left: 0;
-    width: 100%;
-    position: relative;
-    justify-content: center;
-  }
-  .boxConfig h2 {
-    font-size: 12px;
-  }
-  .container {
-    padding-top: 0;
-  }
-  .absolute-div {
-    height: 31%;
-  }
-}
-
-@media (max-width: 1350px) {
-  h1 {
-    font-size: 10px;
-  }
-
-  h2 {
-    font-size: 10px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
-
-  .multi-step-menu button.nav-btn {
-    font-size: 12px;
-  }
-
-  .absolute-div {
-    position: absolute;
-    width: 90%;
-    top: unset;
-    left: 5%;
-    z-index: 1000;
-    bottom: 4%;
-    height: fit-content;
-  }
-
-  .Menu-button {
-    top: 3%;
-    left: 3%;
-  }
-}
-
-@media (max-width: 1220px) {
-  h1 {
-    font-size: 8px;
-  }
-
-  h2 {
-    font-size: 8px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  .multi-step-menu button.nav-btn {
-    font-size: 10px;
-  }
-  .step-button {
-    font-size: 8px;
-  }
-}
-
-@media (max-width: 1100px) {
-  h1 {
-    font-size: 8px;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    font-size: 8px;
-  }
-
-  .multi-step-menu button.nav-btn {
-    font-size: 10px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .MainStyle {
-    flex-direction: column-reverse;
-    height: 98%;
-  }
-  .MenuGroupe {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
-  }
-
-  .canvasStyle {
-    height: 65%;
-    width: 100%;
-  }
-  .Lameetdimension {
-    flex-direction: column;
-  }
-  .NavBtnContainer {
-    padding-top: 10px;
-  }
-  h2 {
-    font-size: 10px;
-  }
-
-  .choice-label {
-    font-size: 10px;
-  }
-  h3 {
-    font-size: 16px;
-  }
-  .Menu-button {
-    width: 45px;
-    height: 45px;
-  }
-
-  .boxConfig h2 {
-    font-size: 13px;
-  }
-  .absolute-div {
-    bottom: 1%;
-  }
-
-  .StepStyleManoeuvre {
-    gap: 0px;
-  }
-}
+    .boxConfig {
+      top: 10%;
+      left: 0;
+      width: 100%;
+      position: relative;
+      justify-content: center;
+    }
+    .MainStyle {
+      flex-direction: column-reverse;
+      height: 98%;
+    }
+    .MenuGroupe {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .canvasStyle {
+      height: 65%;
+      width: 100%;
+    }
+  
+    .Lameetdimension {
+      flex-direction: column;
+    }
+  
+    .NavBtnContainer {
+      padding-top: 10px;
+    }
+  
+    h2 {
+      font-size: 10px;
+    }
+  
+    .choice-label {
+      font-size: 12px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    .Menu-button {
+      width: 45px;
+      height: 45px;
+    }
+  
+    .StepStyleManoeuvre {
+      gap: 0px;
+    }
+    .step-button {
+      font-size: 8px;
+    }
+    .absolute-div {
+      position: absolute;
+      width: 90%;
+      top: unset;
+      left: 5%;
+      z-index: 1000;
+      bottom: 4%;
+      height: fit-content;
+      bottom: 1%;
+    }
+  } 
