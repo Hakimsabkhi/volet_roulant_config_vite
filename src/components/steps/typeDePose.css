@@ -75,6 +75,7 @@
 
   .poseOptions-container {
     flex-direction: row;
+    gap: 5px;
   }
 
   .popup-info {

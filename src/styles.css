@@ -458,10 +458,12 @@ body {
       position: relative;
       justify-content: center;
     }
+
     .MainStyle {
       flex-direction: column-reverse;
       height: 98%;
     }
+
     .MenuGroupe {
       display: flex;
       flex-direction: column;
@@ -470,11 +472,7 @@ body {
       height: 100%;
       justify-content: flex-end;
     }
-    .canvasStyle {
-      height: 65%;
-      width: 100%;
-    }
-  
+
     .Lameetdimension {
       flex-direction: column;
     }
@@ -488,11 +486,13 @@ body {
     }
   
     .choice-label {
-      font-size: 12px;
+      font-size: 10px;
     }
+
     h3 {
       font-size: 16px;
     }
+
     .Menu-button {
       width: 50px;
       height: 50px;
@@ -501,14 +501,16 @@ body {
     .StepStyleManoeuvre {
       gap: 0px;
     }
+
     .step-button {
       font-size: 8px;
     }
+
     .absolute-div {
       position: absolute;
-      width: 90%;
+      width: 93%;
       top: unset;
-      left: 5%;
+      left: 3%;
       z-index: 1000;
       bottom: 4%;
       height: fit-content;
