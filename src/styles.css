@@ -447,7 +447,12 @@ canvas {
     width: 28%;
     top: 10%;
   }
-
+  .multiplier-controls span {
+    font-size: 22px;
+  }
+  h2 {
+    margin-block-start: 0;
+  }
   .boxConfig {
     top: 2%;
   }
@@ -459,6 +464,7 @@ canvas {
   }
   h1 {
     font-size: 14px;
+    margin-block-start: 0;
   }
 }
 
